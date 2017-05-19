@@ -39,6 +39,8 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 import com.example.pch61m.homecontrol.home.db.Inventory;
 import com.example.pch61m.homecontrol.home.db.Users;
@@ -54,7 +56,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener  {
 
 
 //SAUL SE LA COME
@@ -74,6 +76,18 @@ public class MainActivity extends AppCompatActivity
     private EditText txtState;
     private EditText txtMessages;
     private EditText txtToSend;
+
+
+    @Override
+    public void colorchanged(String color_name) {
+
+        if (color_name.equals("L1100"))
+        {
+            txtToSend.setText(color_name);
+            SendMessage(color_name);
+         //   Toast.makeText(getApplicationContext(), "Funciona", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     // ************************************************
     // BtBackgroundTask
@@ -425,6 +439,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         Intent i = getIntent();
 
         id= i.getIntExtra(EXTRA_ID,0);
@@ -578,6 +594,63 @@ public class MainActivity extends AppCompatActivity
         registerReceiver(btFoundReceiver, filter);
     }
 
+
+    //________________________________FUNCION DE ENVIAR _______________________________________________
+    //_______________________________________________________________________________
+
+
+    public void SendMessage(String texto){
+
+    try {
+        if ((connectedSocket != null) && (connectedSocket.isConnected())) {
+            String toSend = texto.trim();
+
+            if (toSend.length() > 0) {
+                // TBI - This object "should" be a member variable
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(connectedSocket.getOutputStream()));
+                bw.write(toSend);
+                bw.write("\r\n");
+                bw.flush();
+               // Toast.makeText(getApplicationContext(), "  Enviado "+ toSend, Toast.LENGTH_SHORT).show();
+                // appendMessageText("[Enviado] " + toSend);
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "  No se está conectado con algún dispositivo" , Toast.LENGTH_SHORT).show();
+            //   appendStateText("[Error] La conexión no parece estar activa!");
+        }
+    } catch (IOException e) {
+        Toast.makeText(getApplicationContext(), " Ocurrió un problema durante el envío de datos!" , Toast.LENGTH_SHORT).show();
+
+        // appendStateText("[Error] Ocurrió un problema durante el envío de datos!");
+        e.printStackTrace();
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //_______________________________________________________________________________
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -665,7 +738,7 @@ public class MainActivity extends AppCompatActivity
            // getSupportFragmentManager().beginTransaction().replace(R.id.content_main, fragment).commit();
 
 
-             Toast.makeText(getApplicationContext(), "HOLA", Toast.LENGTH_SHORT).show();
+        //     Toast.makeText(getApplicationContext(), "HOLA", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_interior) {
 
