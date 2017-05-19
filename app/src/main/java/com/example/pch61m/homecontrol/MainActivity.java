@@ -78,16 +78,32 @@ public class MainActivity extends AppCompatActivity
     private EditText txtToSend;
 
 
-    @Override
-    public void colorchanged(String color_name) {
+  //FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOS
 
-        if (color_name.equals("L1100"))
-        {
-            txtToSend.setText(color_name);
-            SendMessage(color_name);
-         //   Toast.makeText(getApplicationContext(), "Funciona", Toast.LENGTH_SHORT).show();
-        }
+    @Override
+    public void L1(String value) {
+        SendMessage(value);
     }
+
+    @Override
+    public void L2(String value) {
+        SendMessage(value);
+
+    }
+
+    @Override
+    public void S1(String value) {
+
+    }
+
+    @Override
+    public void S2(String value) {
+
+    }
+
+
+    //END FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOS
+
 
     // ************************************************
     // BtBackgroundTask
@@ -459,14 +475,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-     //  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-     //  fab.setOnClickListener(new View.OnClickListener() {
-     //      @Override
-     //      public void onClick(View view) {
-     //          Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-     //                  .setAction("Action", null).show();
-     //      }
-     //  });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

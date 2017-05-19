@@ -8,17 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link FragmentExterior.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FragmentExterior#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentExterior extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,15 +29,7 @@ public class FragmentExterior extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentExterior.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static FragmentExterior newInstance(String param1, String param2) {
         FragmentExterior fragment = new FragmentExterior();
         Bundle args = new Bundle();
@@ -63,7 +48,14 @@ public class FragmentExterior extends Fragment {
         }
     }
 
-    private Switch L1_switch;
+    private Switch L1_switch_terraza;
+    private Switch L2_switch_patio;
+    private Switch S1_switch_garage;
+    private Switch S2_switch_puerta;
+    private SeekBar seekBar_terraza;
+    private SeekBar seekBar_patio;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,17 +64,117 @@ public class FragmentExterior extends Fragment {
 
         View view;
         view= inflater.inflate(R.layout.fragment_exterior, container, false);
-        L1_switch= (Switch) view.findViewById(R.id.switch_terraza);
+        L1_switch_terraza= (Switch) view.findViewById(R.id.switch_terraza);
+        L2_switch_patio= (Switch) view.findViewById(R.id.switch_patio);
+        S1_switch_garage= (Switch) view.findViewById(R.id.switch_garage);
+        S2_switch_puerta= (Switch) view.findViewById(R.id.switch_puerta_principal);
+        seekBar_terraza= (SeekBar) view.findViewById(R.id.seek_terraza);
+        seekBar_patio= (SeekBar) view.findViewById(R.id.seek_patio);
 
 
-        L1_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+
+        L1_switch_terraza.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onColorChangeListener.colorchanged("L1100");
+               if (isChecked) {
+                  int value= (int) (seekBar_terraza.getProgress()*2.55);
+                   String L1_string = "L1" + Integer.toString(value);
+
+                   onColorChangeListener.L1(L1_string);
+
+                   Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+               }else{
+
+                   String L1_string = "L1OFF" ;
+
+                   onColorChangeListener.L1(L1_string);
+                   Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+
+
+               }
             }
         });
 
 
+        L2_switch_patio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    int value= (int) (seekBar_patio.getProgress()*2.55);
+                    String L2_string = "L2" + Integer.toString(value);
+
+                    onColorChangeListener.L2(L2_string);
+
+                    //Toast.makeText(getContext(), L2_string, Toast.LENGTH_SHORT).show();
+                }else{
+
+                    String L2_string = "L2OFF" ;
+
+                    onColorChangeListener.L2(L2_string);
+                  //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+
+
+                }
+            }
+        });
+
+
+        seekBar_terraza.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                if (L1_switch_terraza.isChecked()){
+
+                    int value= (int) (seekBar_terraza.getProgress()*2.55);
+                    String L1_string = "L1" + Integer.toString(value);
+
+                    onColorChangeListener.L1(L1_string);
+
+                }
+
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+
+        seekBar_patio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                if (L2_switch_patio.isChecked()){
+
+                    int value= (int) (seekBar_patio.getProgress()*2.55);
+                    String L2_string = "L2" + Integer.toString(value);
+
+                    onColorChangeListener.L2(L2_string);
+
+                }
+
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
 
@@ -102,16 +194,11 @@ public class FragmentExterior extends Fragment {
         super.onAttach(context);
 
         try {
-    onColorChangeListener = (OnColorChangeListener) context;
+            onColorChangeListener = (OnColorChangeListener) context;
         }catch (Exception e){
 
         }
-    //    if (context instanceof OnFragmentInteractionListener) {
-    //        mListener = (OnFragmentInteractionListener) context;
-    //    } else {
-    //        throw new RuntimeException(context.toString()
-    //                + " must implement OnFragmentInteractionListener");
-    //    }
+
     }
 
     @Override
@@ -137,9 +224,17 @@ public class FragmentExterior extends Fragment {
 
 
     public interface OnColorChangeListener{
-        public void colorchanged(String color_name);
+        public void L1(String value);
+        public void L2(String value);
+        public void S1(String value);
+        public void S2(String value);
+
+
 
     }
+
+
+
 
 
 }
