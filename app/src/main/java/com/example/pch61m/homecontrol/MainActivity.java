@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener {
 
 
-
+//SAUL SE LA COME
 
 
     private static final int REQUEST_ENABLE_BT = 1;
