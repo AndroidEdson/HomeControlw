@@ -1,12 +1,15 @@
 package com.example.pch61m.homecontrol;
 
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -49,6 +52,7 @@ public class FragmentInterior extends Fragment {
 
     private SeekBar seekBar_temperatura1;
     private TextView txt_temperatura1;
+    private Button configbutton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +63,7 @@ public class FragmentInterior extends Fragment {
 
         seekBar_temperatura1= (SeekBar) view.findViewById(R.id.seek_temperatura1);
         txt_temperatura1 = (TextView) view.findViewById(R.id.txt_temperatura1);
+        configbutton = (Button) view.findViewById(R.id.configbutton);
 
         seekBar_temperatura1.setOnTouchListener(new View.OnTouchListener(){
             @Override
@@ -67,9 +72,17 @@ public class FragmentInterior extends Fragment {
             }
         });
 
+         seekBar_temperatura1.setProgress(50);
+
         txt_temperatura1.setText(String.valueOf(seekBar_temperatura1.getProgress()) + "º");
 
-
+        configbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(),AlarmPopup.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
