@@ -2,24 +2,19 @@ package com.example.pch61m.homecontrol;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * Created by PCH61M on 16/05/2017.
- */
-
-public class Cancel_Confirmation extends Activity{
-
-    String id;
+public class AlarmPopup extends Activity {
     Button eliminar;
     Button cancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delete_confirmation);
+        setContentView(R.layout.alarm_popup);
 
         eliminar = (Button) findViewById(R.id.btn_delete_confirmation) ;
         cancelar = (Button) findViewById(R.id.btn_cancel_confirmation) ;
@@ -39,11 +34,5 @@ public class Cancel_Confirmation extends Activity{
                 finish();
             }
         });
-
-
     }
-
-
-
-
 }
