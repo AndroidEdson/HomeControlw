@@ -20,6 +20,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -82,22 +83,22 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void L1(String value) {
-        SendMessage(value);
-    }
+            SendMessage(value);
+        }
 
-    @Override
-    public void L2(String value) {
-        SendMessage(value);
+        @Override
+        public void L2(String value) {
+            SendMessage(value);
 
-    }
+        }
 
-    @Override
-    public void S1(String value) {
+        @Override
+        public void S1(String value) {
 
-    }
+        }
 
-    @Override
-    public void S2(String value) {
+        @Override
+        public void S2(String value) {
 
     }
 
@@ -449,6 +450,13 @@ public class MainActivity extends AppCompatActivity
     private int  request_code=0;
 
 
+    private View device;
+    private View device1;
+    private View sendMessage;
+    private LinearLayout send;
+    private LinearLayout linearLayout_recycler;
+    private TextView decive_txt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -475,6 +483,12 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        device= (View)findViewById(R.id.layout_device);
+        device1= (View)findViewById(R.id.layout_device1);
+        sendMessage= (View)findViewById(R.id.view_send);
+        send= (LinearLayout)findViewById(R.id.layout_send);
+        linearLayout_recycler= (LinearLayout)findViewById(R.id.layout_recycler);
+        decive_txt= (TextView)findViewById(R.id.devices_list_label) ;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -542,7 +556,6 @@ public class MainActivity extends AppCompatActivity
                      startActivityForResult(cancel, request_code);
 
                  }
-
              }
 
             }
@@ -739,6 +752,14 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment= null;
         Boolean Fragment_selected=false;
 
+        device.setVisibility(View.GONE);
+        device1.setVisibility(View.GONE);
+        sendMessage.setVisibility(View.GONE);
+        send.setVisibility(View.GONE);
+        linearLayout_recycler.setVisibility(View.GONE);
+        decive_txt.setVisibility(View.GONE);
+
+
 
         if (id == R.id.nav_exterior) {
             // Handle the camera action
@@ -749,6 +770,7 @@ public class MainActivity extends AppCompatActivity
         //     Toast.makeText(getApplicationContext(), "HOLA", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_interior) {
+
 
             fragment = new FragmentInterior();
 

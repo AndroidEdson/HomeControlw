@@ -58,6 +58,7 @@
 
 
     <View
+        android:id="@+id/layout_device1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
@@ -73,9 +74,15 @@
         android:textSize="18sp"/>
 
     <View
+        android:id="@+id/layout_device"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:id="@+id/layout_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/devices_list"
@@ -83,6 +90,7 @@
         android:layout_height="150sp"
         android:layout_margin="5dp"
         android:layout_weight="0.06"/>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -91,11 +99,13 @@
 
 
     <View
+        android:id="@+id/view_send"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
 
     <LinearLayout
+        android:id="@+id/layout_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

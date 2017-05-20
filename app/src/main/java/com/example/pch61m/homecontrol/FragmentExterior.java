@@ -72,8 +72,6 @@ public class FragmentExterior extends Fragment {
         seekBar_patio= (SeekBar) view.findViewById(R.id.seek_patio);
 
 
-
-
         L1_switch_terraza.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -132,6 +130,7 @@ public class FragmentExterior extends Fragment {
                     onColorChangeListener.L1(L1_string);
 
                 }
+
 
 
             }
