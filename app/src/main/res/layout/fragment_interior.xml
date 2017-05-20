@@ -28,13 +28,15 @@
 
 
         </LinearLayout>
-
-
-
+        <View
+            android:id="@+id/layout_device1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:layout_weight="0.03">
 
 
@@ -45,15 +47,14 @@
 
 
                 <TextView
-                        android:id="@+id/txt_lights"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="Cocina"
-                        android:textColor="@color/darkgreen"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
+                    android:id="@+id/txt_lights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Cocina"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
 
                 <LinearLayout
@@ -76,10 +77,11 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
                         android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
                         android:padding="5dp"
                         android:src="@drawable/ic_action_whatshot" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -88,31 +90,36 @@
                         android:weightSum="1">
 
                         <TextView
+                            android:id="@+id/txt_temperatura1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="sans-serif-light"
                             android:gravity="center"
                             android:text="30º"
-                            android:id="@+id/txt_temperatura1"
                             android:textColor="@android:color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
+
                         <SeekBar
-                        android:id="@+id/seek_temperatura1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:padding="5dp"
-                        android:progress="100"
-                        android:progressTint="@color/red"
-                        android:thumbTint="@color/red" />
+                            android:id="@+id/seek_temperatura1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:progress="100"
+                            android:progressTint="@color/red"
+                            android:thumbTint="@color/red" />
 
 
                     </LinearLayout>
 
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,6 +134,7 @@
                         android:textColor="@color/darkgreen"
                         android:textSize="15dp"
                         android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -134,38 +142,100 @@
                         android:padding="5dp"
                         android:weightSum="1">
 
-
-                        <Switch
-                            android:id="@+id/switch_terraza2"
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="38dp"
-                            android:text="Cocina  "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
+                            android:layout_height="match_parent"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:text="Sensor de movimiento:"
+                            android:textColor="@android:color/white"
+                            android:textSize="15sp" />
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
                             android:padding="5dp"
-                            android:src="@drawable/ic_action_brightness_5" />
+                            android:src="@drawable/ic_action_remove_red_eye" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:text="Sin movimiento"
+                            android:textColor="@android:color/white"
+                            android:textSize="15sp" />
 
-                        <SeekBar
-                            android:id="@+id/seek_terraza2"
-                            android:layout_width="match_parent"
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:weightSum="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
                             android:padding="5dp"
-                            android:progress="100" />
+                            android:src="@drawable/ic_action_security" />
+                        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Seguridad"
+                        android:gravity="center"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:text="Alarma:"
+                            android:textColor="@android:color/white"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:text="Desactivada"
+                            android:textColor="@android:color/white"
+                            android:textSize="15sp" />
 
 
                     </LinearLayout>
 
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Configurar"
+                        android:textSize="16sp" />
+
+
                 </LinearLayout>
             </LinearLayout>
-
 
 
         </ScrollView>

@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 
 public class FragmentInterior extends Fragment {
@@ -47,6 +48,7 @@ public class FragmentInterior extends Fragment {
     }
 
     private SeekBar seekBar_temperatura1;
+    private TextView txt_temperatura1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,6 +58,7 @@ public class FragmentInterior extends Fragment {
         view=  inflater.inflate(R.layout.fragment_interior, container, false);
 
         seekBar_temperatura1= (SeekBar) view.findViewById(R.id.seek_temperatura1);
+        txt_temperatura1 = (TextView) view.findViewById(R.id.txt_temperatura1);
 
         seekBar_temperatura1.setOnTouchListener(new View.OnTouchListener(){
             @Override
@@ -63,6 +66,10 @@ public class FragmentInterior extends Fragment {
                 return true;
             }
         });
+
+
+
+        txt_temperatura1.setText(String.valueOf(seekBar_temperatura1.getProgress()) + "º");
         return view;
     }
 
