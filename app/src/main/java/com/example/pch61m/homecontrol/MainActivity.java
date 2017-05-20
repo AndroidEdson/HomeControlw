@@ -778,10 +778,10 @@ public class MainActivity extends AppCompatActivity
             fragment = new FragmentInterior();
 
         } else if (id == R.id.nav_room1) {
+            fragment = new FragmentRoom1();
 
         } else if (id == R.id.nav_room2) {
-
-        } else if (id == R.id.nav_sala) {
+            fragment = new FragmentRoom2();
 
         }
         else if (id == R.id.nav_users) {
