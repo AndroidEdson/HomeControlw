@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void L1(String value) {
-            SendMessage(value);
+
+        SendMessage(value);
         }
 
         @Override
@@ -94,13 +95,13 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void S1(String value) {
-
+            SendMessage(value);
         }
 
         @Override
         public void S2(String value) {
-
-    }
+            SendMessage(value);
+        }
 
 
     //END FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOS
@@ -490,6 +491,7 @@ public class MainActivity extends AppCompatActivity
         linearLayout_recycler= (LinearLayout)findViewById(R.id.layout_recycler);
         decive_txt= (TextView)findViewById(R.id.devices_list_label) ;
 
+        send.setVisibility(View.GONE);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -763,6 +765,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_exterior) {
             // Handle the camera action
+            SendMessage("E1");
            fragment = new FragmentExterior();
            // getSupportFragmentManager().beginTransaction().replace(R.id.content_main, fragment).commit();
 

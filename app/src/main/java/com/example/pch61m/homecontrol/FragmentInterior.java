@@ -67,9 +67,10 @@ public class FragmentInterior extends Fragment {
             }
         });
 
-
-
         txt_temperatura1.setText(String.valueOf(seekBar_temperatura1.getProgress()) + "º");
+
+
+
         return view;
     }
 
