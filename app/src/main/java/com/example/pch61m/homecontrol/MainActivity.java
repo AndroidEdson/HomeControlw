@@ -750,6 +750,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_interior) {
 
+            fragment = new FragmentInterior();
 
         } else if (id == R.id.nav_room1) {
 

@@ -90,6 +90,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:padding="5dp"
+                        android:progressTint="#FFFF00"
+                        android:thumbTint="#FFFF00"
                         android:progress="100" />
 
 
@@ -125,6 +127,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:padding="5dp"
+                        android:progressTint="#FFFF00"
+                        android:thumbTint="#FFFF00"
                         android:progress="100" />
 
                 </LinearLayout>
@@ -216,8 +220,6 @@
 
 
                 </LinearLayout>
-
-
 
 
 
