@@ -13,7 +13,7 @@ public class BeginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_begin);
 
-        //prueba eroza
+        //prueba eroza 2
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
