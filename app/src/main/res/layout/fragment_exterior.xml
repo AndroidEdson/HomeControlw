@@ -81,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:padding="5dp"
-                        android:src="@drawable/ic_action_brightness_5" />
+                        android:src="@drawable/ic_action_wb_sunny" />
 
                     <SeekBar
                         android:id="@+id/seek_terraza"
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:padding="5dp"
-                        android:src="@drawable/ic_action_brightness_5" />
+                        android:src="@drawable/ic_action_wb_sunny" />
 
                     <SeekBar
                         android:id="@+id/seek_patio"
