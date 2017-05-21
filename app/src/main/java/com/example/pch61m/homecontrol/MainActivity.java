@@ -79,7 +79,19 @@ public class MainActivity extends AppCompatActivity
     private EditText txtMessages;
     private EditText txtToSend;
     DataFromActivityToFragment dataFromActivityToFragment;
-    public String recibido;
+
+    // VARIABLES DE LECTURAS
+    public String LM1;
+    public String LM2;
+    public String LM3;
+    public String LM4;
+    public String P1;
+    public String P2;
+    public String V1;
+    public String V2;
+    public String PI;
+    // VARIABLES DE LECTURAS
+
 
   //FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOSs
 
@@ -107,11 +119,46 @@ public class MainActivity extends AppCompatActivity
             SendMessage(value);
         }
 
+        //LECTURA DE DATOS
       @Override
-         public String test() {
-
-        return  recibido ;
+         public String LM1() {
+        return  LM1 ;
          }
+    @Override
+    public String LM2() {
+        return  LM2 ;
+    }
+    @Override
+    public String LM3() {
+        return  LM3 ;
+    }
+    @Override
+    public String LM4() {
+        return  LM4 ;
+    }
+    @Override
+    public String P1() {
+        return  P1 ;
+    }
+    @Override
+    public String P2() {
+        return  P2 ;
+    }
+    @Override
+    public String V1() {
+        return  V1 ;
+    }
+    @Override
+    public String V2() {
+        return  V2 ;
+    }
+    @Override
+    public String PI() {
+        return  PI ;
+    }
+
+
+    //LECTURA DE DATOS
 
 
 
@@ -138,17 +185,33 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         protected void onProgressUpdate(String... values) {
-
-
-
             if(values[0].startsWith("LM1")){
-                recibido=values[0];
-            //    Toast.makeText(getApplicationContext(), recibido, Toast.LENGTH_LONG).show();
-
+                LM1=values[0];
             }
-
-
-            Toast.makeText(getApplicationContext(), "[Recibido] " + values[0], Toast.LENGTH_LONG).show();
+            if(values[0].startsWith("LM2")){
+                LM2=values[0];
+            }
+            if(values[0].startsWith("LM3")){
+                LM3=values[0];
+            }
+            if(values[0].startsWith("LM4")){
+                LM4=values[0];
+            }
+            if(values[0].startsWith("P1")){
+                P1=values[0];
+            }
+            if(values[0].startsWith("P2")){
+                P2=values[0];
+            }
+            if(values[0].startsWith("V1")){
+                V1=values[0];
+            }
+            if(values[0].startsWith("V2")){
+                V2=values[0];
+            }
+            if(values[0].startsWith("PI")){
+                PI=values[0];
+            }
 
            // appendMessageText("[Recibido] " + values[0]);
         }
@@ -774,8 +837,8 @@ public class MainActivity extends AppCompatActivity
            fragment = new FragmentExterior();
 
         } else if (id == R.id.nav_interior) {
-
-
+            SendMessage("I1");
+            SendMessage("A2");
             fragment = new FragmentInterior();
 
         } else if (id == R.id.nav_room1) {

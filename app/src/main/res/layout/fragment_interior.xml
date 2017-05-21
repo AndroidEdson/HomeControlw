@@ -90,7 +90,7 @@
                         android:weightSum="1">
 
                         <TextView
-                            android:id="@+id/txt_temperatura1"
+                            android:id="@+id/txt_temperaturaCocina"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="sans-serif-light"
@@ -101,7 +101,7 @@
                             android:textStyle="bold" />
 
                         <SeekBar
-                            android:id="@+id/seek_temperatura1"
+                            android:id="@+id/seekInterior_temperaturaCocina"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -164,6 +164,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
                             android:text="Sin movimiento"
+                            android:id="@+id/txtInteriorMovimiento"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
 
@@ -219,6 +220,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
                             android:text="Cerrada"
+                            android:id="@+id/InteriorVentana1"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -244,6 +246,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
                             android:text="Cerrada"
+                            android:id="@+id/InteriorVentana2"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -269,6 +272,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
                             android:text="Cerrada"
+                            android:id="@+id/Interiorpuerta"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -294,6 +298,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
                             android:text="Cerrada"
+                            android:id="@+id/InteriorGarage"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -322,6 +327,7 @@
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
                             android:text="Desactivada"
+                            android:id="@+id/InteriorAlarma"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -333,7 +339,7 @@
                         android:fontFamily="sans-serif-light"
                         android:text="Configurar"
                         android:textSize="16sp"
-                        android:id="@+id/configbutton"
+                        android:id="@+id/btnConfigurar"
                         />
 
 
