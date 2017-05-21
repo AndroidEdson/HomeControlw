@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity
     DataFromActivityToFragment dataFromActivityToFragment;
 
     // VARIABLES DE LECTURAS
+    public String recibido;
     public String LM1;
     public String LM2;
     public String LM3;
@@ -119,42 +120,9 @@ public class MainActivity extends AppCompatActivity
             SendMessage(value);
         }
 
-        //LECTURA DE DATOS
-      @Override
-         public String LM1() {
-        return  LM1 ;
-         }
-    @Override
-    public String LM2() {
-        return  LM2 ;
-    }
-    @Override
-    public String LM3() {
-        return  LM3 ;
-    }
     @Override
     public String LM4() {
-        return  LM4 ;
-    }
-    @Override
-    public String P1() {
-        return  P1 ;
-    }
-    @Override
-    public String P2() {
-        return  P2 ;
-    }
-    @Override
-    public String V1() {
-        return  V1 ;
-    }
-    @Override
-    public String V2() {
-        return  V2 ;
-    }
-    @Override
-    public String PI() {
-        return  PI ;
+        return LM4;
     }
 
 
@@ -187,6 +155,7 @@ public class MainActivity extends AppCompatActivity
         protected void onProgressUpdate(String... values) {
             if(values[0].startsWith("LM1")){
                 LM1=values[0];
+
             }
             if(values[0].startsWith("LM2")){
                 LM2=values[0];
