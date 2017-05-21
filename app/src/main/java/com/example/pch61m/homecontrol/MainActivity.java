@@ -779,6 +779,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_room2) {
             fragment = new FragmentRoom2();
+            //prueba
 
         }
         else if (id == R.id.nav_users) {
