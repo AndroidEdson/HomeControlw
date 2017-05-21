@@ -73,6 +73,7 @@ public class FragmentInterior extends Fragment {
     private String V1="";
     private String V2="";
     private String PI="";
+    private String Z1="";
 
 
     @Override
@@ -84,7 +85,7 @@ public class FragmentInterior extends Fragment {
         // INICIALIZACION DE VARIABLES ___________________________________
 
         View view;
-        view= inflater.inflate(R.layout.fragment_exterior, container, false);
+        view= inflater.inflate(R.layout.fragment_interior, container, false);
 
         seekInterior_temperaturaCocina= (SeekBar) view.findViewById(R.id.seekInterior_temperaturaCocina);
         txtInteriorMovimiento= (TextView) view.findViewById(R.id.txtInteriorMovimiento);
@@ -106,7 +107,7 @@ public class FragmentInterior extends Fragment {
             }
         });
 
-        txt_temperaturaCocina.setText(String.valueOf(seekInterior_temperaturaCocina.getProgress()) + "º");
+        //txt_temperaturaCocina.setText(String.valueOf(seekInterior_temperaturaCocina.getProgress()) + "º");
 
         //________________________________________________________________
         // EVENTOS CLICK  ___________________________________
@@ -150,14 +151,64 @@ public class FragmentInterior extends Fragment {
         public void run()
         {
             mHandler6.postDelayed(runnable6,3000);
-            LM1=onColorChangeListener.LM1();
-            P1=onColorChangeListener.P1();
-            P2=onColorChangeListener.P2();
-            V1=onColorChangeListener.V1();
-            V2=onColorChangeListener.V2();
-            PI=onColorChangeListener.PI();
 
-            seekInterior_temperaturaCocina.setProgress(Integer.parseInt(LM1));
+            //P1=onColorChangeListener.P1();
+            //P2=onColorChangeListener.P2();
+            //V1=onColorChangeListener.V1();
+            //V2=onColorChangeListener.V2();
+            //PI=onColorChangeListener.PI();
+
+            if(LM1!= null) {
+                LM1=onColorChangeListener.LM1().substring(3, 5);
+                int val= Integer.valueOf(LM1);
+                seekInterior_temperaturaCocina.setProgress(Integer.valueOf(LM1));
+                txt_temperaturaCocina.setText(String.valueOf(seekInterior_temperaturaCocina.getProgress()) + "º");
+            }
+            if(PI!= null) {
+                PI=onColorChangeListener.PI().substring(2);
+                int val= Integer.valueOf(PI);
+
+                if (val == 0)
+                {txtInteriorMovimiento.setText("Sin movimiento");}
+                else if (val == 1) {
+                    txtInteriorMovimiento.setText("Movimiento");}
+            }
+            if(P1!= null) {
+                P1=onColorChangeListener.P1().substring(2);
+                int val= Integer.valueOf(P1);
+                if (val == 0)
+                {Interiorpuerta.setText("Cerrado");}
+                else if (val == 1){Interiorpuerta.setText("Abierto");}
+            }
+            if(P2!= null) {
+                P2=onColorChangeListener.P2().substring(2);
+                int val= Integer.valueOf(P2);
+                if (val == 0)
+                {InteriorGarage.setText("Cerrado");}
+                else if (val == 1) {InteriorGarage.setText("Abierto");}
+            }
+            if(V1!= null) {
+                V1=onColorChangeListener.V1().substring(2);
+                int val= Integer.valueOf(V1);
+                if (val == 0)
+                {InteriorVentana1.setText("Cerrado");}
+                else if (val == 1) {InteriorVentana1.setText("Abierto");}
+            }
+            if(V2!= null) {
+                V2=onColorChangeListener.V2().substring(2);
+                int val= Integer.valueOf(V2);
+                if (val == 0)
+                {InteriorVentana2.setText("Cerrado");}
+                else if (val == 1) {InteriorVentana2.setText("Abierto");}
+            }
+            if(Z1!= null) {
+                Z1=onColorChangeListener.Z1().substring(2);
+                int val= Integer.valueOf(Z1);
+                if (val == 0)
+                {InteriorAlarma.setText("Desactivada");}
+                else if (val == 1) {InteriorVentana2.setText("Activada");}
+            }
+
         }
     };
 
@@ -178,6 +229,7 @@ public class FragmentInterior extends Fragment {
         public String V1();
         public String V2();
         public String PI();
+        public String Z1();
     }
 
 

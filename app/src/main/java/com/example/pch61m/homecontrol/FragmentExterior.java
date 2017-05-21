@@ -66,7 +66,7 @@ public class FragmentExterior extends Fragment {
     private TextView txt_temperatura1;
 
 
-    private String LM4="";
+    private String LM4 = "" ;
 
 
     @Override
@@ -294,10 +294,10 @@ public class FragmentExterior extends Fragment {
         public void run()
         {
             mHandler6.postDelayed(runnable6,3000);
-            if(LM4!=null) {
+            if(LM4!=null ) {
                 LM4 = onColorChangeListener.LM4().substring(3, 5);
                int val= Integer.valueOf(LM4);
-                Toast.makeText(getContext(),LM4, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getContext(),LM4, Toast.LENGTH_SHORT).show();
                 seekBar_temperatura1.setProgress(Integer.valueOf(LM4));
                 txt_temperatura1.setText(String.valueOf(LM4));
 
@@ -318,8 +318,6 @@ public class FragmentExterior extends Fragment {
         public void S1(String value);
         public void S2(String value);
         public String LM4();
-
-
     }
 
 

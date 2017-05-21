@@ -95,7 +95,6 @@
                             android:layout_height="match_parent"
                             android:fontFamily="sans-serif-light"
                             android:gravity="center"
-                            android:text="30º"
                             android:textColor="@android:color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -107,7 +106,8 @@
                             android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:padding="5dp"
-                            android:progress="100"
+                            android:progress="0
+"
                             android:progressTint="@color/red"
                             android:thumbTint="@color/red" />
 
@@ -163,7 +163,6 @@
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:text="Sin movimiento"
                             android:id="@+id/txtInteriorMovimiento"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
@@ -219,7 +218,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:text="Cerrada"
+                            android:text=""
                             android:id="@+id/InteriorVentana1"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
@@ -245,7 +244,6 @@
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:text="Cerrada"
                             android:id="@+id/InteriorVentana2"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
@@ -271,7 +269,6 @@
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:text="Cerrada"
                             android:id="@+id/Interiorpuerta"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
@@ -297,7 +294,6 @@
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:text="Cerrada"
                             android:id="@+id/InteriorGarage"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />
@@ -326,7 +322,6 @@
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
                             android:layout_marginLeft="10dp"
-                            android:text="Desactivada"
                             android:id="@+id/InteriorAlarma"
                             android:textColor="@android:color/white"
                             android:textSize="15sp" />

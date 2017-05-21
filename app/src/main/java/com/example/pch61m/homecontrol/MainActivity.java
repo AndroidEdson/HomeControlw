@@ -58,7 +58,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener  {
+        implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener,FragmentInterior.OnFragmentInteractionListener,FragmentInterior.OnColorChangeListener  {
 
 
 //SAUL SE LA COME
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity
     public String V1;
     public String V2;
     public String PI;
+    public String Z1;
     // VARIABLES DE LECTURAS
 
 
@@ -120,10 +121,49 @@ public class MainActivity extends AppCompatActivity
             SendMessage(value);
         }
 
+    //LECTURA
+    @Override
+    public String LM1() {
+        return LM1;
+    }
+    @Override
+    public String LM2() {
+        return LM2;
+    }
+    @Override
+    public String LM3() {
+        return LM3;
+    }
     @Override
     public String LM4() {
         return LM4;
     }
+    @Override
+    public String P1() {
+        return P1;
+    }
+    @Override
+    public String P2() {
+        return P2;
+    }
+    @Override
+    public String PI() {
+        return PI;
+    }
+    @Override
+    public String V1() {
+        return V1;
+    }
+    @Override
+    public String V2() {
+        return V2;
+    }
+    @Override
+    public String Z1() {
+        return Z1;
+    }
+
+    //LECTURA
 
 
     //LECTURA DE DATOS
@@ -155,7 +195,6 @@ public class MainActivity extends AppCompatActivity
         protected void onProgressUpdate(String... values) {
             if(values[0].startsWith("LM1")){
                 LM1=values[0];
-
             }
             if(values[0].startsWith("LM2")){
                 LM2=values[0];
@@ -181,8 +220,10 @@ public class MainActivity extends AppCompatActivity
             if(values[0].startsWith("PI")){
                 PI=values[0];
             }
+            if(values[0].startsWith("Z1")){
+                Z1=values[0];
+            }
 
-           // appendMessageText("[Recibido] " + values[0]);
         }
     }
 
@@ -803,11 +844,22 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
             SendMessage("E1");
             SendMessage("A1");
+            LM4 = "LM400";
            fragment = new FragmentExterior();
 
         } else if (id == R.id.nav_interior) {
             SendMessage("I1");
             SendMessage("A2");
+            LM1 = "LM400";
+            P1 = "P10";
+            P2 = "P20";
+            V1 = "V10";
+            V2 = "V20";
+            PI = "PI0";
+            PI = "Z10";
+
+
+
             fragment = new FragmentInterior();
 
         } else if (id == R.id.nav_room1) {
