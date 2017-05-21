@@ -12,6 +12,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -77,9 +78,12 @@ public class MainActivity extends AppCompatActivity
     private EditText txtState;
     private EditText txtMessages;
     private EditText txtToSend;
-
+    DataFromActivityToFragment dataFromActivityToFragment;
+    public String recibido;
 
   //FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOSs
+
+
 
     @Override
     public void L1(String value) {
@@ -102,6 +106,13 @@ public class MainActivity extends AppCompatActivity
         public void S2(String value) {
             SendMessage(value);
         }
+
+    @Override
+    public String test() {
+
+        return  recibido ;
+    }
+
 
 
     //END FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOS
@@ -127,6 +138,16 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         protected void onProgressUpdate(String... values) {
+
+
+
+            if(values[0].startsWith("LM1")){
+                recibido=values[0];
+            //    Toast.makeText(getApplicationContext(), recibido, Toast.LENGTH_LONG).show();
+
+            }
+
+
             Toast.makeText(getApplicationContext(), "[Recibido] " + values[0], Toast.LENGTH_LONG).show();
 
            // appendMessageText("[Recibido] " + values[0]);
@@ -449,7 +470,7 @@ public class MainActivity extends AppCompatActivity
     private Switch blue_switch;
     private boolean flag;
     private int  request_code=0;
-
+    Handler mHandler6 = new Handler() ;
 
     private View device;
     private View device1;
@@ -458,6 +479,7 @@ public class MainActivity extends AppCompatActivity
     private LinearLayout linearLayout_recycler;
     private TextView decive_txt;
 
+    int aux=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -476,6 +498,9 @@ public class MainActivity extends AppCompatActivity
           //  id= savedInstanceState.getString(KEY_ID, "");
 
         }
+
+
+
 
 
         inventory= new Inventory(getApplicationContext());
@@ -615,6 +640,9 @@ public class MainActivity extends AppCompatActivity
         // Register for broadcasts when a device is discovered.
         filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(btFoundReceiver, filter);
+
+        mHandler6.post(runnable6);
+
     }
 
 
@@ -655,7 +683,18 @@ public class MainActivity extends AppCompatActivity
 
 
 
+    Runnable runnable6 = new Runnable() {
+        @Override
+        public void run()
+        {
+            mHandler6.postDelayed(runnable6,3000);
 
+
+            recibido=recibido;
+
+        }
+
+    };
 
 
 
@@ -766,6 +805,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_exterior) {
             // Handle the camera action
             SendMessage("E1");
+            SendMessage("LM1");
            fragment = new FragmentExterior();
            // getSupportFragmentManager().beginTransaction().replace(R.id.content_main, fragment).commit();
 
@@ -778,6 +818,7 @@ public class MainActivity extends AppCompatActivity
             fragment = new FragmentInterior();
 
         } else if (id == R.id.nav_room1) {
+
             fragment = new FragmentRoom1();
 
         } else if (id == R.id.nav_room2) {
@@ -790,8 +831,11 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.nav_profiles) {
 
         }
-     if (fragment!=null){
+
+
+        if (fragment!=null){
       //   Toast.makeText(getApplicationContext(), "HOLA", Toast.LENGTH_SHORT).show();
+          //  dataFromActivityToFragment = (DataFromActivityToFragment) fragment;
 
          FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
          ft.replace(R.id.content_main, fragment);
@@ -810,4 +854,12 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+
+
+    public interface DataFromActivityToFragment {
+        void sendData(String data);
+    }
+
+
 }

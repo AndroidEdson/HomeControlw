@@ -21,6 +21,9 @@ public class FragmentExterior extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     OnColorChangeListener onColorChangeListener;
 
+
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -59,6 +62,8 @@ public class FragmentExterior extends Fragment {
 
     private SeekBar seekBar_temperatura1;
     private TextView txt_temperatura1;
+
+    private String LM1;
 
 
     @Override
@@ -236,15 +241,17 @@ public class FragmentExterior extends Fragment {
 
                 if (isChecked) {
                     String S2_string = "S2" + "1";
+                    String S_string;
 
                     onColorChangeListener.S2(S2_string);
+                    S_string= onColorChangeListener.test();
 
-                    //Toast.makeText(getContext(), L2_string, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), S_string, Toast.LENGTH_SHORT).show();
                 }else{
 
-                    String S2_string = "S20" ;
+               //     String S2_string = "S20" ;
 
-                    onColorChangeListener.S2(S2_string);
+                  //  onColorChangeListener.S2(S2_string);
                     //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
 
                 }
@@ -252,12 +259,6 @@ public class FragmentExterior extends Fragment {
 
             }
         });
-
-
-
-
-
-
 
 
         return view;
@@ -290,6 +291,8 @@ public class FragmentExterior extends Fragment {
     }
 
 
+
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -301,7 +304,7 @@ public class FragmentExterior extends Fragment {
         public void L2(String value);
         public void S1(String value);
         public void S2(String value);
-
+        public String test();
 
 
     }
@@ -309,5 +312,5 @@ public class FragmentExterior extends Fragment {
 
 
 
-
 }
+
