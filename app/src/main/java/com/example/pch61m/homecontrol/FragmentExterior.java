@@ -88,9 +88,6 @@ public class FragmentExterior extends Fragment {
         seekBar_patio= (SeekBar) view.findViewById(R.id.seek_patio);
 
 
-
-
-
         seekBar_temperatura1= (SeekBar) view.findViewById(R.id.seek_temperatura1);
         txt_temperatura1 = (TextView) view.findViewById(R.id.txt_temperatura1);
 
@@ -297,9 +294,15 @@ public class FragmentExterior extends Fragment {
         public void run()
         {
             mHandler6.postDelayed(runnable6,3000);
-            LM1=onColorChangeListener.test().substring(3,7);
-            Toast.makeText(getContext(), LM1, Toast.LENGTH_SHORT).show();
 
+            if(LM1!=null) {
+                LM1 = onColorChangeListener.test().substring(3, 5);
+                int val= Integer.valueOf(LM1);
+            //    Toast.makeText(getContext(),String.valueOf(val), Toast.LENGTH_SHORT).show();
+                seekBar_temperatura1.setProgress(Integer.valueOf(val));
+                txt_temperatura1.setText(Integer.valueOf(val));
+
+            }
         }
     };
 
@@ -319,8 +322,6 @@ public class FragmentExterior extends Fragment {
 
 
     }
-
-
 
 
 }

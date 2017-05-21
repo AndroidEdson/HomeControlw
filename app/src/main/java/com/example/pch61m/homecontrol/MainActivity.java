@@ -770,13 +770,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_exterior) {
             // Handle the camera action
             SendMessage("E1");
-            SendMessage("LM1");
-            recibido="LM11200";
+            SendMessage("A1");
            fragment = new FragmentExterior();
-
-
-
-
 
         } else if (id == R.id.nav_interior) {
 
