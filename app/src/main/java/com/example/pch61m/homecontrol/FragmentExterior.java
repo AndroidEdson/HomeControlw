@@ -298,8 +298,8 @@ public class FragmentExterior extends Fragment {
                 LM4 = onColorChangeListener.LM4().substring(3, 5);
                 int val= Integer.valueOf(LM4);
             //    Toast.makeText(getContext(),String.valueOf(val), Toast.LENGTH_SHORT).show();
-                seekBar_temperatura1.setProgress(Integer.valueOf(val));
-                txt_temperatura1.setText(Integer.valueOf(val));
+                seekBar_temperatura1.setProgress(Integer.valueOf(LM1));
+                txt_temperatura1.setText(Integer.valueOf(LM1));
 
             }
         }
