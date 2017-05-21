@@ -66,7 +66,7 @@ public class FragmentExterior extends Fragment {
     private TextView txt_temperatura1;
 
 
-    private String LM1;
+    private String LM1="";
 
 
     @Override
@@ -246,15 +246,13 @@ public class FragmentExterior extends Fragment {
                     String S2_string = "S2" + "1";
                     String S_string;
 
-                    onColorChangeListener.S2(S2_string);
-                    S_string= onColorChangeListener.test();
+                onColorChangeListener.S2(S2_string);
+                //    S_string= onColorChangeListener.test();
 
                 }else{
 
-               //     String S2_string = "S20" ;
-
-                  //  onColorChangeListener.S2(S2_string);
-                    //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+                    String S2_string = "S20" ;
+                    onColorChangeListener.S2(S2_string);
 
                 }
 
@@ -299,9 +297,7 @@ public class FragmentExterior extends Fragment {
         public void run()
         {
             mHandler6.postDelayed(runnable6,3000);
-
-
-            LM1=onColorChangeListener.test();
+            LM1=onColorChangeListener.test().substring(3,7);
             Toast.makeText(getContext(), LM1, Toast.LENGTH_SHORT).show();
 
         }
