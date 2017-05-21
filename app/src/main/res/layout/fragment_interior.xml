@@ -106,8 +106,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:padding="5dp"
-                            android:progress="0
-"
+                            android:progress="0"
                             android:progressTint="@color/red"
                             android:thumbTint="@color/red" />
 

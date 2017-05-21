@@ -856,7 +856,7 @@ public class MainActivity extends AppCompatActivity
             V1 = "V10";
             V2 = "V20";
             PI = "PI0";
-            PI = "Z10";
+            Z1 = "Z10";
 
 
 
