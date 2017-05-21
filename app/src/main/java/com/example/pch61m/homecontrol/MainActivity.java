@@ -107,11 +107,11 @@ public class MainActivity extends AppCompatActivity
             SendMessage(value);
         }
 
-    @Override
-    public String test() {
+      @Override
+         public String test() {
 
         return  recibido ;
-    }
+         }
 
 
 
@@ -590,9 +590,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-
-
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -641,8 +638,6 @@ public class MainActivity extends AppCompatActivity
         filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(btFoundReceiver, filter);
 
-        mHandler6.post(runnable6);
-
     }
 
 
@@ -680,34 +675,6 @@ public class MainActivity extends AppCompatActivity
 
 
 }
-
-
-
-    Runnable runnable6 = new Runnable() {
-        @Override
-        public void run()
-        {
-            mHandler6.postDelayed(runnable6,3000);
-
-
-            recibido=recibido;
-
-        }
-
-    };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

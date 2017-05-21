@@ -3,6 +3,7 @@ package com.example.pch61m.homecontrol;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -59,9 +60,11 @@ public class FragmentExterior extends Fragment {
     private Switch S2_switch_puerta;
     private SeekBar seekBar_terraza;
     private SeekBar seekBar_patio;
+    Handler mHandler6 = new Handler() ;
 
     private SeekBar seekBar_temperatura1;
     private TextView txt_temperatura1;
+
 
     private String LM1;
 
@@ -246,7 +249,6 @@ public class FragmentExterior extends Fragment {
                     onColorChangeListener.S2(S2_string);
                     S_string= onColorChangeListener.test();
 
-                    Toast.makeText(getContext(), S_string, Toast.LENGTH_SHORT).show();
                 }else{
 
                //     String S2_string = "S20" ;
@@ -260,6 +262,7 @@ public class FragmentExterior extends Fragment {
             }
         });
 
+        mHandler6.post(runnable6);
 
         return view;
 
@@ -291,6 +294,18 @@ public class FragmentExterior extends Fragment {
     }
 
 
+    Runnable runnable6 = new Runnable() {
+        @Override
+        public void run()
+        {
+            mHandler6.postDelayed(runnable6,3000);
+
+
+            LM1=onColorChangeListener.test();
+            Toast.makeText(getContext(), LM1, Toast.LENGTH_SHORT).show();
+
+        }
+    };
 
 
     public interface OnFragmentInteractionListener {
