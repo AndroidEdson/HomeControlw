@@ -676,9 +676,6 @@ public class MainActivity extends AppCompatActivity
 
 }
 
-
-
-
     //_______________________________________________________________________________
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -748,6 +745,7 @@ public class MainActivity extends AppCompatActivity
 
 
     @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -773,11 +771,12 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
             SendMessage("E1");
             SendMessage("LM1");
+            recibido="LM11200";
            fragment = new FragmentExterior();
-           // getSupportFragmentManager().beginTransaction().replace(R.id.content_main, fragment).commit();
 
 
-        //     Toast.makeText(getApplicationContext(), "HOLA", Toast.LENGTH_SHORT).show();
+
+
 
         } else if (id == R.id.nav_interior) {
 
