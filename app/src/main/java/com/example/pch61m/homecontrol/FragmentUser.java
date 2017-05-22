@@ -1,16 +1,20 @@
 package com.example.pch61m.homecontrol;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.pch61m.homecontrol.home.db.Inventory;
+import com.example.pch61m.homecontrol.home.db.Users;
 
 
 /**
@@ -73,8 +77,11 @@ public class FragmentUser extends Fragment {
     private EditText new_nip;
     private LinearLayout linearLayout_pass;
     private TextView text_modificar_pass;
-
-
+    private  int Acceso=0;
+    private int request_code=0;
+    private int id;
+    Inventory inventory;
+    private Users user;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -94,15 +101,42 @@ public class FragmentUser extends Fragment {
         text_modificar_pass= (TextView)view.findViewById(R.id.txt_modificar);
 
 
+        inventory= new Inventory(getContext());
+
+
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            id = bundle.getInt(MainActivity.KEY_ID, 0);
+        }
+
+
+        user=inventory.getUserFromID(id);
+        name.setText(user.getName());
+        lastname.setText(user.getLastname());
+        email.setText(user.getEmail());
+
+
+        Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
 
 
         text_modificar_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(Acceso==0){
+
+                    Intent i = new Intent(getContext(), Modificar_Contrasena.class);
+                    i.putExtra( Modificar_Contrasena.KEY_ID, id);
+                    startActivityForResult(i, request_code);
+
+                }else{
+
+                    linearLayout_pass.setVisibility(View.VISIBLE);
 
 
-                linearLayout_pass.setVisibility(View.VISIBLE);
+                }
+
+
 
             }
         });

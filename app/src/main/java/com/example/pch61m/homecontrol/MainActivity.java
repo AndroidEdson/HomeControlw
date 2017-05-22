@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity
 
   //FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOSs
 
-//
-//
+
+
     @Override
     public void L1(String value) {
 
@@ -637,6 +637,7 @@ public class MainActivity extends AppCompatActivity
     private LinearLayout linearLayout_recycler;
     private TextView decive_txt;
 
+    public static String KEY_ID="KEY_ID_USER";
     int aux=0;
 
     @Override
@@ -662,7 +663,7 @@ public class MainActivity extends AppCompatActivity
 
 
         inventory= new Inventory(getApplicationContext());
-        InventoryHelper.backupDatabaseFile(getApplicationContext());
+        //InventoryHelper.backupDatabaseFile(getApplicationContext());
 
         users= inventory.getUserFromID(id);
 
@@ -983,6 +984,9 @@ public class MainActivity extends AppCompatActivity
             LM3 = "LM300";
             fragment = new FragmentRoom2();
 
+            Bundle bundle= new Bundle();
+            bundle.putInt(KEY_ID,id);
+            fragment.setArguments(bundle);
         }
         else if (id == R.id.nav_users) {
 
@@ -1004,8 +1008,6 @@ public class MainActivity extends AppCompatActivity
          ft.commit();
 
      }
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

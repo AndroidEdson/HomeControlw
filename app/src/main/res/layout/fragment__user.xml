@@ -15,31 +15,13 @@
             android:orientation="vertical">
 
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
 
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="310dp"
-                    android:src="@drawable/ic_action_person_add" />
 
-            </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,6 +31,14 @@
                 android:textColor="@color/darkgreen"
                 android:textSize="15dp"
                 android:textStyle="bold" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:src="@drawable/ic_action_person_add" />
+
+        </LinearLayout>
 
 
             <View
@@ -63,27 +53,27 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:padding="5dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="120dp"
-                        android:src="@drawable/ic_person"
-                        android:layout_height="120dp" />
+                        android:layout_width="80dp"
+                        android:layout_height="140dp"
+                        android:src="@drawable/ic_person" />
 
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="297dp"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:padding="5dp">
 
@@ -98,7 +88,7 @@
 
                         <EditText
                             android:id="@+id/txt_name_update"
-                            android:layout_width="150dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Nombre"
                             android:padding="5dp" />
@@ -122,7 +112,7 @@
 
                         <EditText
                             android:id="@+id/txt_lastname_update"
-                            android:layout_width="150dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Apellido"
                             android:padding="5dp" />
@@ -146,7 +136,7 @@
 
                         <EditText
                             android:id="@+id/txt_email_update"
-                            android:layout_width="150dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Email"
                             android:padding="5dp" />
@@ -176,105 +166,63 @@
 
             <LinearLayout
                 android:id="@+id/layout_pass"
-                android:visibility="gone"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:visibility="gone">
 
 
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Usuario "
-                android:textColor="@color/darkgreen"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nueva Contraseña:     "
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-
-                <EditText
-                    android:id="@+id/txt_new_pass"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPassword" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
 
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="NIP "
-                android:textColor="@color/darkgreen"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nueva Contraseña:     "
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
+                    <EditText
+                        android:id="@+id/txt_new_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPassword" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
+                </LinearLayout>
 
 
-                <TextView
-
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nuevo NIP:     "
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
 
-                <EditText
-                    android:id="@+id/txt_new_NIP"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPassword" />
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nuevo NIP:     "
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/txt_new_NIP"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPassword" />
 
+
+                </LinearLayout>
 
 
             </LinearLayout>
