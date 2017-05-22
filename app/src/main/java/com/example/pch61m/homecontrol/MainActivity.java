@@ -45,6 +45,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.pch61m.homecontrol.home.db.Inventory;
+import com.example.pch61m.homecontrol.home.db.InventoryHelper;
 import com.example.pch61m.homecontrol.home.db.Users;
 
 import java.io.BufferedReader;
@@ -148,9 +149,15 @@ public class MainActivity extends AppCompatActivity
         return LM3;
     }
     @Override
-    public String LM4() {
-        return LM4;
+    public void UpdateA1(String value) {
+        SendMessage(value);
     }
+
+       @Override
+       public String LM4() {
+        return LM4;
+      }
+
     @Override
     public String P1() {
         return P1;
@@ -228,6 +235,7 @@ public class MainActivity extends AppCompatActivity
         protected void onProgressUpdate(String... values) {
             if(values[0].startsWith("LM1")){
                 LM1=values[0];
+
             }
             if(values[0].startsWith("LM2")){
                 LM2=values[0];
@@ -272,6 +280,8 @@ public class MainActivity extends AppCompatActivity
                 pi=values[0];
             }
 
+            Toast.makeText(getApplicationContext(), values[0], Toast.LENGTH_SHORT).show();
+           // appendMessageText("[Recibido] " + values[0]);
         }
     }
 
@@ -609,6 +619,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
         Intent i = getIntent();
 
         id= i.getIntExtra(EXTRA_ID,0);
@@ -623,8 +634,9 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
         inventory= new Inventory(getApplicationContext());
+        InventoryHelper.backupDatabaseFile(getApplicationContext());
+
         users= inventory.getUserFromID(id);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -890,14 +902,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_exterior) {
             // Handle the camera action
+           // SendMessage("D1");
             SendMessage("E1");
-            SendMessage("A1");
-            LM4 = "LM400";
+          // mHandler6.post(runnable6);
+            LM4="LM430";
            fragment = new FragmentExterior();
 
         } else if (id == R.id.nav_interior) {
+
             SendMessage("I1");
             SendMessage("A2");
+
             LM1 = "LM400";
             P1 = "P10";
             P2 = "P20";
@@ -959,6 +974,17 @@ public class MainActivity extends AppCompatActivity
     public interface DataFromActivityToFragment {
         void sendData(String data);
     }
+
+
+
+    Runnable runnable6 = new Runnable() {
+        @Override
+        public void run() {
+            mHandler6.postDelayed(runnable6, 3000);
+            SendMessage("D1");
+        }
+    };
+
 
 
 }

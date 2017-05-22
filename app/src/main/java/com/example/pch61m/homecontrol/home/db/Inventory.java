@@ -144,7 +144,26 @@ public final class Inventory {
     }
 
 
+    public  int getNIP() {
 
+        //  Cursor cursor = db.rawQuery("SELECT * FROM categories ORDER BY id", null);
+        int NIP=0;
+        String query = "SELECT * FROM pass_door" ;
+
+        Cursor cursor = (db.rawQuery(query, null));
+
+        if (cursor.getCount() >= 1) {
+            cursor.moveToFirst();
+            NIP= cursor.getInt(cursor.getColumnIndex("NIP"));
+
+        }
+        else{
+            NIP=0;
+        }
+        //List<Products> list = new ArrayList<Products>();
+        return NIP;
+
+    }
 
 
 

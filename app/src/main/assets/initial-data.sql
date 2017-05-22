@@ -10,3 +10,5 @@
     INSERT INTO users_profile (id_user, id_profile ) VALUES ( 0, 2);
     INSERT INTO users_profile (id_user, id_profile ) VALUES ( 1, 0);
     INSERT INTO users_profile (id_user, id_profile ) VALUES ( 1, 3);
+
+    INSERT INTO pass_door(id, NIP) VALUES (0, 1245);

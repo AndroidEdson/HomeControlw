@@ -16,3 +16,7 @@ CREATE TABLE [users](
        [id_user] INTEGER NOT NULL REFERENCES users([id]),
        [id_profile] INTEGER NOT NULL REFERENCES profiles([id]),
       UNIQUE([id_user], [id_profile]));
+
+      CREATE TABLE [pass_door](
+      [id] INTEGER PRIMARY KEY,
+      [NIP] INTEGER  NOT NULL);

@@ -1,6 +1,7 @@
 package com.example.pch61m.homecontrol;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,10 +11,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentExterior extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -21,8 +25,6 @@ public class FragmentExterior extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     OnColorChangeListener onColorChangeListener;
-
-
 
 
     // TODO: Rename and change types of parameters
@@ -60,14 +62,18 @@ public class FragmentExterior extends Fragment {
     private Switch S2_switch_puerta;
     private SeekBar seekBar_terraza;
     private SeekBar seekBar_patio;
-    Handler mHandler6 = new Handler() ;
+    Handler mHandler6 = new Handler();
+    private ImageView close;
+    private ImageView open;
 
     private SeekBar seekBar_temperatura1;
     private TextView txt_temperatura1;
 
 
-    private String LM4 = "" ;
-
+    private String LM4 = "";
+    int val = 0;
+    int request_code = 1;
+    int door_permision=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,21 +84,23 @@ public class FragmentExterior extends Fragment {
         // INICIALIZACION DE VARIABLES ___________________________________
 
         View view;
-        view= inflater.inflate(R.layout.fragment_exterior, container, false);
-        L1_switch_terraza= (Switch) view.findViewById(R.id.switch_terraza);
-        L2_switch_patio= (Switch) view.findViewById(R.id.switch_patio);
-        S1_switch_garage= (Switch) view.findViewById(R.id.switch_garage);
-        S2_switch_puerta= (Switch) view.findViewById(R.id.switch_puerta_principal);
+        view = inflater.inflate(R.layout.fragment_exterior, container, false);
+        L1_switch_terraza = (Switch) view.findViewById(R.id.switch_terraza);
+        L2_switch_patio = (Switch) view.findViewById(R.id.switch_patio);
+        S1_switch_garage = (Switch) view.findViewById(R.id.switch_garage);
+        S2_switch_puerta = (Switch) view.findViewById(R.id.switch_puerta_principal);
 
-        seekBar_terraza= (SeekBar) view.findViewById(R.id.seek_terraza);
-        seekBar_patio= (SeekBar) view.findViewById(R.id.seek_patio);
+        seekBar_terraza = (SeekBar) view.findViewById(R.id.seek_terraza);
+        seekBar_patio = (SeekBar) view.findViewById(R.id.seek_patio);
+        close= (ImageView)view.findViewById(R.id.image_close);
+        open= (ImageView)view.findViewById(R.id.image_open);
 
 
-        seekBar_temperatura1= (SeekBar) view.findViewById(R.id.seek_temperatura1);
+        seekBar_temperatura1 = (SeekBar) view.findViewById(R.id.seek_temperatura1);
         txt_temperatura1 = (TextView) view.findViewById(R.id.txt_temperatura1);
 
 
-        seekBar_temperatura1.setOnTouchListener(new View.OnTouchListener(){
+        seekBar_temperatura1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return true;
@@ -110,21 +118,21 @@ public class FragmentExterior extends Fragment {
         L1_switch_terraza.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               if (isChecked) {
-                  int value= (int) (seekBar_terraza.getProgress()*2.55);
-                   String L1_string = "L1" + Integer.toString(value);
+                if (isChecked) {
+                    int value = (int) (seekBar_terraza.getProgress() * 2.55);
+                    String L1_string = "L1" + Integer.toString(value);
 
-                   onColorChangeListener.L1(L1_string);
+                    onColorChangeListener.L1(L1_string);
 
-                   Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
-               }else{
+                    Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+                } else {
 
-                   String L1_string = "L1000" ;
+                    String L1_string = "L1000";
 
-                   onColorChangeListener.L1(L1_string);
-                   Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+                    onColorChangeListener.L1(L1_string);
+                    Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
 
-               }
+                }
             }
         });
 
@@ -133,18 +141,18 @@ public class FragmentExterior extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    int value= (int) (seekBar_patio.getProgress()*2.55);
+                    int value = (int) (seekBar_patio.getProgress() * 2.55);
                     String L2_string = "L2" + Integer.toString(value);
 
                     onColorChangeListener.L2(L2_string);
 
                     //Toast.makeText(getContext(), L2_string, Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
 
-                    String L2_string = "L2000" ;
+                    String L2_string = "L2000";
 
                     onColorChangeListener.L2(L2_string);
-                  //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -156,9 +164,9 @@ public class FragmentExterior extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                if (L1_switch_terraza.isChecked()){
+                if (L1_switch_terraza.isChecked()) {
 
-                    int value= (int) (seekBar_terraza.getProgress()*2.50);
+                    int value = (int) (seekBar_terraza.getProgress() * 2.50);
                     String L1_string = "L1" + Integer.toString(value);
 
                     onColorChangeListener.L1(L1_string);
@@ -179,14 +187,13 @@ public class FragmentExterior extends Fragment {
         });
 
 
-
         seekBar_patio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                if (L2_switch_patio.isChecked()){
+                if (L2_switch_patio.isChecked()) {
 
-                    int value= (int) (seekBar_patio.getProgress()*2.50);
+                    int value = (int) (seekBar_patio.getProgress() * 2.50);
                     String L2_string = "L2" + Integer.toString(value);
 
                     onColorChangeListener.L2(L2_string);
@@ -211,20 +218,24 @@ public class FragmentExterior extends Fragment {
         //________________________ SERVOS__________________________________________
 
 
-
         S1_switch_garage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+
                 if (isChecked) {
+
+
                     String S1_string = "S1" + "1";
 
                     onColorChangeListener.S1(S1_string);
 
                     //Toast.makeText(getContext(), L2_string, Toast.LENGTH_SHORT).show();
-                }else{
 
-                    String S1_string = "S10" ;
+
+                } else {
+
+                    String S1_string = "S10";
 
                     onColorChangeListener.S1(S1_string);
                     //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
@@ -235,21 +246,33 @@ public class FragmentExterior extends Fragment {
             }
         });
 
+
         S2_switch_puerta.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 if (isChecked) {
-                    String S2_string = "S2" + "1";
-                    String S_string;
 
-                onColorChangeListener.S2(S2_string);
-                //    S_string= onColorChangeListener.test();
+                    if(door_permision==0) {
+                           Intent i = new Intent(getContext(), LoginDoor.class);
+                             startActivityForResult(i, request_code);
+                    }else{
 
-                }else{
+                        String S2_string = "S2" + "1";
+                        String S_string;
+                        onColorChangeListener.S2(S2_string);
+                    }
 
-                    String S2_string = "S20" ;
-                    onColorChangeListener.S2(S2_string);
+
+                } else {
+
+                    if(door_permision==1){
+
+                        String S2_string = "S20";
+                        onColorChangeListener.S2(S2_string);
+
+                    }
+
 
                 }
 
@@ -257,7 +280,7 @@ public class FragmentExterior extends Fragment {
             }
         });
 
-        mHandler6.post(runnable6);
+        //mHandler6.post(runnable6);
 
         return view;
 
@@ -276,7 +299,7 @@ public class FragmentExterior extends Fragment {
 
         try {
             onColorChangeListener = (OnColorChangeListener) context;
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -291,13 +314,12 @@ public class FragmentExterior extends Fragment {
 
     Runnable runnable6 = new Runnable() {
         @Override
-        public void run()
-        {
-            mHandler6.postDelayed(runnable6,3000);
-            if(LM4!=null ) {
+        public void run() {
+            mHandler6.postDelayed(runnable6, 3000);
+
+            if (LM4 != null) {
                 LM4 = onColorChangeListener.LM4().substring(3, 5);
-               int val= Integer.valueOf(LM4);
-               // Toast.makeText(getContext(),LM4, Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(getContext(),LM4, Toast.LENGTH_SHORT).show();
                 seekBar_temperatura1.setProgress(Integer.valueOf(LM4));
                 txt_temperatura1.setText(String.valueOf(LM4));
 
@@ -312,16 +334,40 @@ public class FragmentExterior extends Fragment {
     }
 
 
-    public interface OnColorChangeListener{
+    public interface OnColorChangeListener {
         public void L1(String value);
+
         public void L2(String value);
+
         public void S1(String value);
+
         public void S2(String value);
+
+        public void UpdateA1(String value);
+
         public String LM4();
+
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ((requestCode == request_code && resultCode == RESULT_OK)) {
+            door_permision=1;
+            close.setVisibility(View.GONE);
+            open.setVisibility(View.VISIBLE);
+            S2_switch_puerta.setChecked(true);
+
+            //Toast.makeText(getContext(), "back", Toast.LENGTH_SHORT).show();
+        }
+
+        if(door_permision==0){
+            S2_switch_puerta.setChecked(false);
+
+        }
 
 
-
+    }
 }
 
