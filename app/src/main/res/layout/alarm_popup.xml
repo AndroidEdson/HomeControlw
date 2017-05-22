@@ -41,6 +41,7 @@
         android:layout_height="match_parent"
         android:backgroundTint="@android:color/background_dark"
         android:text="Ventana 1"
+        android:id="@+id/chkv1"
         android:buttonTint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimaryDark"
         />
@@ -49,6 +50,7 @@
         android:layout_height="match_parent"
         android:backgroundTint="@android:color/background_dark"
         android:text="Ventana 2"
+        android:id="@+id/chkv2"
         android:buttonTint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimaryDark"
         />
@@ -57,6 +59,7 @@
         android:layout_height="match_parent"
         android:backgroundTint="@android:color/background_dark"
         android:text="Puerta"
+        android:id="@+id/chkp1"
         android:buttonTint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimaryDark"
         />
@@ -65,9 +68,19 @@
         android:layout_height="match_parent"
         android:backgroundTint="@android:color/background_dark"
         android:text="Garage"
+        android:id="@+id/chkp2"
         android:buttonTint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimaryDark"
         />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/background_dark"
+            android:text="Sensor de movimeinto"
+            android:id="@+id/chkpi"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
+            />
 
 
     </LinearLayout>
@@ -82,7 +95,7 @@
         >
 
         <Button
-            android:id="@+id/btn_delete_confirmation"
+            android:id="@+id/btn_confirmation"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:background="@android:color/holo_green_dark"

@@ -92,6 +92,12 @@ public class MainActivity extends AppCompatActivity
     public String V2;
     public String PI;
     public String Z1;
+    public String p1;
+    public String p2;
+    public String v1;
+    public String v2;
+    public String pi;
+
     // VARIABLES DE LECTURAS
 
 
@@ -120,6 +126,13 @@ public class MainActivity extends AppCompatActivity
         public void S2(String value) {
             SendMessage(value);
         }
+    @Override
+    public void buzzerconfig(String value) {
+        SendMessage(value);
+
+    }
+
+
 
     //LECTURA
     @Override
@@ -161,6 +174,26 @@ public class MainActivity extends AppCompatActivity
     @Override
     public String Z1() {
         return Z1;
+    }
+    @Override
+    public String p1() {
+        return p1;
+    }
+    @Override
+    public String p2() {
+        return p2;
+    }
+    @Override
+    public String v1() {
+        return v1;
+    }
+    @Override
+    public String v2() {
+        return v2;
+    }
+    @Override
+    public String pi() {
+        return pi;
     }
 
     //LECTURA
@@ -222,6 +255,21 @@ public class MainActivity extends AppCompatActivity
             }
             if(values[0].startsWith("Z1")){
                 Z1=values[0];
+            }
+            if(values[0].startsWith("p1")){
+                p1=values[0];
+            }
+            if(values[0].startsWith("p2")){
+                p2=values[0];
+            }
+            if(values[0].startsWith("v1")){
+                v1=values[0];
+            }
+            if(values[0].startsWith("v2")){
+                v2=values[0];
+            }
+            if(values[0].startsWith("pi")){
+                pi=values[0];
             }
 
         }
@@ -857,6 +905,11 @@ public class MainActivity extends AppCompatActivity
             V2 = "V20";
             PI = "PI0";
             Z1 = "Z10";
+            p1 = "p10";
+            p2 = "p20";
+            v1 = "v10";
+            v2 = "v20";
+            pi = "pi0";
 
 
 

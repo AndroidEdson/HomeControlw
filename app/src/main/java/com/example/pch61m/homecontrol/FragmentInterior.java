@@ -1,6 +1,7 @@
 package com.example.pch61m.homecontrol;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +16,8 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class FragmentInterior extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -74,6 +77,13 @@ public class FragmentInterior extends Fragment {
     private String V2="";
     private String PI="";
     private String Z1="";
+    private String p1="";
+    private String p2="";
+    private String v1="";
+    private String v2="";
+    private String pi="";
+    int request_code=1;
+
 
 
     @Override
@@ -112,10 +122,22 @@ public class FragmentInterior extends Fragment {
         //________________________________________________________________
         // EVENTOS CLICK  ___________________________________
 
+
         // LECTURA
         mHandler6.post(runnable6);
         //-------------------------------------------------------------------------
-
+        btnConfigurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AlarmPopup.class);
+                intent.putExtra(AlarmPopup.EXTRA_P1, Integer.valueOf(onColorChangeListener.p1().substring(2)));
+                intent.putExtra(AlarmPopup.EXTRA_P2, Integer.valueOf(onColorChangeListener.p2().substring(2)));
+                intent.putExtra(AlarmPopup.EXTRA_V1, Integer.valueOf(onColorChangeListener.v1().substring(2)));
+                intent.putExtra(AlarmPopup.EXTRA_V2, Integer.valueOf(onColorChangeListener.v2().substring(2)));
+                intent.putExtra(AlarmPopup.EXTRA_PI, Integer.valueOf(onColorChangeListener.pi().substring(2)));
+                startActivityForResult(intent, request_code);
+            }
+        });
         return view;
 
     }
@@ -208,6 +230,21 @@ public class FragmentInterior extends Fragment {
                 {InteriorAlarma.setText("Desactivada");}
                 else if (val == 1) {InteriorVentana2.setText("Activada");}
             }
+            if(pi!= null) {
+                pi=onColorChangeListener.pi().substring(2);
+            }
+            if(p1!= null) {
+                P1=onColorChangeListener.p1().substring(2);
+            }
+            if(p2!= null) {
+                p2=onColorChangeListener.p2().substring(2);
+            }
+            if(v1!= null) {
+                v1=onColorChangeListener.v1().substring(2);
+            }
+            if(v2!= null) {
+                v2=onColorChangeListener.v2().substring(2);
+            }
 
         }
     };
@@ -220,6 +257,10 @@ public class FragmentInterior extends Fragment {
 
 
     public interface OnColorChangeListener{
+
+        public void buzzerconfig(String value);
+
+
         public String LM1();
         public String LM2();
         public String LM3();
@@ -230,10 +271,24 @@ public class FragmentInterior extends Fragment {
         public String V2();
         public String PI();
         public String Z1();
+        public String p1();
+        public String p2();
+        public String v1();
+        public String v2();
+        public String pi();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == AlarmPopup.RESULT_OK){
+                onColorChangeListener.buzzerconfig("ZZ"+"p1"+data.getStringExtra("p1")+"p2"+data.getStringExtra("p2")+"v1"+data.getStringExtra("v1")
+                +"v2"+data.getStringExtra("v2")+"pi"+data.getStringExtra("pi"));
+            }
+        }
 
-
+    }
 
 }
 
