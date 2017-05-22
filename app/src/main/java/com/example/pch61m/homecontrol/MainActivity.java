@@ -904,7 +904,7 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
            // SendMessage("D1");
             SendMessage("E1");
-          // mHandler6.post(runnable6);
+           mHandler6.post(runnable6);
             LM4="LM430";
            fragment = new FragmentExterior();
 
@@ -940,6 +940,9 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.nav_users) {
+
+
+            fragment = new FragmentUser();
 
         }
         else if (id == R.id.nav_profiles) {
