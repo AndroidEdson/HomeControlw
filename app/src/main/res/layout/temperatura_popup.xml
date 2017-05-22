@@ -52,6 +52,7 @@
 
     <EditText
         android:id="@+id/editText"
+
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/darkgreen"

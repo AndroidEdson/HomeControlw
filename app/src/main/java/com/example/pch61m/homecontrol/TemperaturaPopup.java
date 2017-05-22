@@ -29,6 +29,7 @@ public class TemperaturaPopup extends Activity {
                 intent_back.putExtra("t1",String.valueOf(editText.getText()));
                 setResult(RESULT_OK, intent_back);
                 finish();
+                //
             }
         });
 

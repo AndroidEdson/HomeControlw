@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity
 
   //FUNCIONES QUE VIENEN DE LOS FRAGMENTS PARA INTERCAMBIAR DATOSs
 
-
-
+//
+//
     @Override
     public void L1(String value) {
 

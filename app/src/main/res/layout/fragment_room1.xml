@@ -93,6 +93,7 @@
                             android:textStyle="bold" />
 
                         <SeekBar
+
                             android:id="@+id/seek_temperaturaroom1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

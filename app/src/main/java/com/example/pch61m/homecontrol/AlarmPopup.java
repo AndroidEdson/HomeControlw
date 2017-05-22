@@ -71,6 +71,7 @@ public class AlarmPopup extends Activity {
                 intent_back.putExtra("pi",String.valueOf(pi));
                 setResult(RESULT_OK, intent_back);
                 finish();
+                //
             }
         });
 

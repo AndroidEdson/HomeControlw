@@ -262,6 +262,7 @@ public class FragmentRoom1 extends Fragment {
         if (requestCode == 1) {
             if(resultCode == TemperaturaPopup.RESULT_OK){
                 onColorChangeListener.T1("T1"+data.getStringExtra("t1"));
+                //
             }
         }
 

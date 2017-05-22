@@ -38,6 +38,7 @@ public class FragmentRoom2 extends Fragment {
 
     public FragmentRoom2() {
         // Required empty public constructor
+        //
     }
 
 
