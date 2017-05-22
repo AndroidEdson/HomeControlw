@@ -82,7 +82,7 @@
                         android:weightSum="1">
 
                         <TextView
-                            android:id="@+id/txt_temperatura1"
+                            android:id="@+id/txt_temperaturaroom1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="sans-serif-light"
@@ -93,7 +93,7 @@
                             android:textStyle="bold" />
 
                         <SeekBar
-                            android:id="@+id/seek_temperatura1"
+                            android:id="@+id/seek_temperaturaroom1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -103,7 +103,12 @@
                             android:progressTint="@color/red"
                             android:thumbTint="@color/red" />
 
-
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Temperatura deseada"
+                            android:id="@+id/temperaturadeseadaroom1"
+                            />
                     </LinearLayout>
 
 
@@ -114,18 +119,35 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Ventilador"
+                    android:layout_gravity="center"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="5dp"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    >
 
                     <Switch
-                        android:id="@+id/switch_terraza"
+                        android:id="@+id/switchventauto_room1"
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
-                        android:text="Ventilador  "
+                        android:text="Automatico  "
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <Switch
+                        android:id="@+id/switchvent_room1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="Encender  "
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
@@ -143,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="Iluminción"
+                android:layout_gravity="center"
                 android:textColor="@color/darkgreen"
                 android:textSize="15dp"
                 android:textStyle="bold" />

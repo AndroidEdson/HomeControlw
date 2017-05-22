@@ -59,7 +59,8 @@ import java.util.Set;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener,FragmentInterior.OnFragmentInteractionListener,FragmentInterior.OnColorChangeListener  {
+        implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener,FragmentInterior.OnFragmentInteractionListener,FragmentInterior.OnColorChangeListener,FragmentRoom1.OnFragmentInteractionListener,FragmentRoom1.OnColorChangeListener,
+        FragmentRoom2.OnFragmentInteractionListener,FragmentRoom2.OnColorChangeListener{
 
 
 //SAUL SE LA COME
@@ -91,8 +92,11 @@ public class MainActivity extends AppCompatActivity
     public String P2;
     public String V1;
     public String V2;
+    public String T1;
     public String PI;
     public String Z1;
+    public String R1;
+    public String B1;
     public String p1;
     public String p2;
     public String v1;
@@ -127,6 +131,29 @@ public class MainActivity extends AppCompatActivity
         public void S2(String value) {
             SendMessage(value);
         }
+    @Override
+    public void B1(String value) {
+        SendMessage(value);
+    }
+    @Override
+    public void T1(String value) {
+        SendMessage(value);
+    }
+    @Override
+    public void R1(String value) {
+        SendMessage(value);
+    }
+    public void B2(String value) {
+        SendMessage(value);
+    }
+    @Override
+    public void T2(String value) {
+        SendMessage(value);
+    }
+    @Override
+    public void R2(String value) {
+        SendMessage(value);
+    }
     @Override
     public void buzzerconfig(String value) {
         SendMessage(value);
@@ -904,16 +931,22 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
            // SendMessage("D1");
             SendMessage("E1");
-           mHandler6.post(runnable6);
+           mHandler6.post(runnable1);
+            mHandler6.removeCallbacks(runnable2);
+            mHandler6.removeCallbacks(runnable3);
+            mHandler6.removeCallbacks(runnable4);
             LM4="LM430";
            fragment = new FragmentExterior();
 
         } else if (id == R.id.nav_interior) {
 
             SendMessage("I1");
-            SendMessage("A2");
+            mHandler6.post(runnable2);
+            mHandler6.removeCallbacks(runnable1);
+            mHandler6.removeCallbacks(runnable3);
+            mHandler6.removeCallbacks(runnable4);
 
-            LM1 = "LM400";
+            LM1 = "LM100";
             P1 = "P10";
             P2 = "P20";
             V1 = "V10";
@@ -931,12 +964,24 @@ public class MainActivity extends AppCompatActivity
             fragment = new FragmentInterior();
 
         } else if (id == R.id.nav_room1) {
-
+            SendMessage("H1");
+            mHandler6.post(runnable3);
+            mHandler6.removeCallbacks(runnable1);
+            mHandler6.removeCallbacks(runnable2);
+            mHandler6.removeCallbacks(runnable4);
+            SendMessage("B110");
+            LM2 = "LM200";
             fragment = new FragmentRoom1();
 
         } else if (id == R.id.nav_room2) {
+            SendMessage("H2");
+            mHandler6.post(runnable4);
+            mHandler6.removeCallbacks(runnable2);
+            mHandler6.removeCallbacks(runnable3);
+            mHandler6.removeCallbacks(runnable1);
+            SendMessage("B210");
+            LM3 = "LM300";
             fragment = new FragmentRoom2();
-            //prueba
 
         }
         else if (id == R.id.nav_users) {
@@ -980,11 +1025,32 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    Runnable runnable6 = new Runnable() {
+    Runnable runnable1 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable6, 3000);
+            mHandler6.postDelayed(runnable1, 3000);
             SendMessage("D1");
+        }
+    };
+    Runnable runnable2 = new Runnable() {
+        @Override
+        public void run() {
+            mHandler6.postDelayed(runnable2, 3000);
+            SendMessage("D2");
+        }
+    };
+    Runnable runnable3 = new Runnable() {
+        @Override
+        public void run() {
+            mHandler6.postDelayed(runnable3, 3000);
+            SendMessage("D3");
+        }
+    };
+    Runnable runnable4 = new Runnable() {
+        @Override
+        public void run() {
+            mHandler6.postDelayed(runnable4, 3000);
+            SendMessage("D4");
         }
     };
 

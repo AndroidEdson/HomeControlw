@@ -262,7 +262,6 @@ public class FragmentInterior extends Fragment {
 
 
         public String LM1();
-        public String LM2();
         public String LM3();
         public String LM4();
         public String P1();

@@ -35,6 +35,9 @@
             android:name=".AlarmPopup"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity
+            android:name=".TemperaturaPopup"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
             android:name=".MainActivity"
             android:label=""
             android:screenOrientation="portrait"
