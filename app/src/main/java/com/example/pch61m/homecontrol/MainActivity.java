@@ -176,14 +176,13 @@ public class MainActivity extends AppCompatActivity
         return LM3;
     }
     @Override
+    public String LM4() {
+        return LM4;
+    }
+    @Override
     public void UpdateA1(String value) {
         SendMessage(value);
     }
-
-       @Override
-       public String LM4() {
-        return LM4;
-      }
 
     @Override
     public String P1() {
@@ -945,7 +944,7 @@ public class MainActivity extends AppCompatActivity
             mHandler6.removeCallbacks(runnable2);
             mHandler6.removeCallbacks(runnable3);
             mHandler6.removeCallbacks(runnable4);
-            LM4="LM430";
+            LM4="LM400";
            fragment = new FragmentExterior();
 
         } else if (id == R.id.nav_interior) {

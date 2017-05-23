@@ -280,7 +280,7 @@ public class FragmentExterior extends Fragment {
             }
         });
 
-        //mHandler6.post(runnable6);
+        mHandler6.post(runnable6);
 
         return view;
 
@@ -315,10 +315,10 @@ public class FragmentExterior extends Fragment {
     Runnable runnable6 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable6, 2000);
+            mHandler6.postDelayed(runnable6, 3000);
 
             if (LM4 != null) {
-                LM4 = onColorChangeListener.LM4().substring(3, 5);
+                LM4 = onColorChangeListener.LM4().substring(3);
                 //   Toast.makeText(getContext(),LM4, Toast.LENGTH_SHORT).show();
                 seekBar_temperatura1.setProgress(Integer.valueOf(LM4));
                 txt_temperatura1.setText(String.valueOf(LM4));

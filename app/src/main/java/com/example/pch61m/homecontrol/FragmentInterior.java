@@ -181,7 +181,7 @@ public class FragmentInterior extends Fragment {
             //PI=onColorChangeListener.PI();
 
             if(LM1!= null) {
-                LM1=onColorChangeListener.LM1().substring(3, 5);
+                LM1=onColorChangeListener.LM1().substring(3);
                 int val= Integer.valueOf(LM1);
                 seekInterior_temperaturaCocina.setProgress(Integer.valueOf(LM1));
                 txt_temperaturaCocina.setText(String.valueOf(seekInterior_temperaturaCocina.getProgress()) + "º");
