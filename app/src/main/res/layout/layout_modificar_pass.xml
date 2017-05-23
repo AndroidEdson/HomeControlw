@@ -95,14 +95,15 @@
 
         <EditText
             android:id="@+id/txt_NIP_ACCES"
-            android:padding="5dp"
             android:layout_width="wrap_content"
-            android:hint="Ingrese"
-            android:textStyle="italic"
-            android:textColorHint="#FF424242"
             android:layout_height="wrap_content"
+            android:layout_weight="0.58"
+            android:hint="Ingrese"
             android:inputType="numberPassword"
-            android:layout_weight="0.58" />
+            android:maxLength="4"
+            android:padding="5dp"
+            android:textColorHint="#FF424242"
+            android:textStyle="italic" />
 
     </LinearLayout>
 

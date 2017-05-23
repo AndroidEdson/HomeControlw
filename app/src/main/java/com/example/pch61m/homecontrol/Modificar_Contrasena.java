@@ -42,12 +42,14 @@ public class Modificar_Contrasena extends Activity {
 
         inventory= new Inventory(getApplicationContext());
         user=inventory.getUserFromID(id_user);
+        NIP= inventory.getNIP();
 
 
         eliminar = (Button) findViewById(R.id.btn_delete_confirmation) ;
         cancelar = (Button) findViewById(R.id.btn_cancel_confirmation) ;
         txt_pass_access = (TextView) findViewById(R.id.txt_PASS_ACCES);
         txt_nip_acces = (TextView) findViewById(R.id.txt_NIP_ACCES);
+        Toast.makeText(getApplicationContext(), String.valueOf(NIP)+ " : " + user.getPass().toString() , Toast.LENGTH_SHORT).show();
 
 
 
@@ -58,6 +60,23 @@ public class Modificar_Contrasena extends Activity {
             public void onClick(View v) {
 
 
+                if(txt_nip_acces.getText().toString().equals("") || txt_pass_access.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Campo vacío", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    if(txt_nip_acces.getText().toString().equals( String.valueOf(NIP)) && txt_pass_access.getText().toString().equals(user.getPass() )){
+
+                        Intent intent_back = new Intent();
+                        setResult(RESULT_OK, intent_back);
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Contraseña Incorrecta", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
 
 
 

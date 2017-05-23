@@ -235,23 +235,23 @@
                 android:padding="10dp">
 
                 <Button
-                    android:id="@+id/btn_delete_confirmation"
+                    android:id="@+id/btn_delete_confirmation1"
                     android:layout_width="wrap_content"
                     android:layout_height="38dp"
                     android:background="@android:color/holo_green_dark"
                     android:fontFamily="sans-serif-light"
-                    android:text="Sí"
+                    android:text="Guardar"
                     android:textColor="@android:color/background_light"
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btn_cancel_confirmation"
+                    android:id="@+id/btn_cancel_confirmation1"
                     android:layout_width="wrap_content"
                     android:layout_height="38dp"
                     android:layout_marginLeft="15dp"
                     android:background="@android:color/holo_red_dark"
                     android:fontFamily="sans-serif-light"
-                    android:text="No"
+                    android:text="Cancelar"
                     android:textColor="@android:color/background_light"
                     android:textStyle="bold" />
             </LinearLayout>

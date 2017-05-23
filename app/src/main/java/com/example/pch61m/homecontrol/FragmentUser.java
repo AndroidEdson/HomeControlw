@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.pch61m.homecontrol.home.db.Inventory;
 import com.example.pch61m.homecontrol.home.db.Users;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -82,6 +85,9 @@ public class FragmentUser extends Fragment {
     private int id;
     Inventory inventory;
     private Users user;
+    private Button button_ok;
+    private Button button_cancel;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,6 +106,8 @@ public class FragmentUser extends Fragment {
         linearLayout_pass= (LinearLayout)view.findViewById(R.id.layout_pass);
         text_modificar_pass= (TextView)view.findViewById(R.id.txt_modificar);
 
+        button_cancel= (Button)view.findViewById(R.id.btn_cancel_confirmation1);
+        button_ok=(Button)view.findViewById(R.id.btn_delete_confirmation1) ;
 
         inventory= new Inventory(getContext());
 
@@ -116,7 +124,7 @@ public class FragmentUser extends Fragment {
         email.setText(user.getEmail());
 
 
-        Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
 
 
         text_modificar_pass.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +145,79 @@ public class FragmentUser extends Fragment {
                 }
 
 
+
+            }
+        });
+
+        button_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(Acceso==1) {
+
+
+                    if (name.getText().toString().equals("") || lastname.getText().toString().equals("") || email.getText().toString().equals("") || new_pass.getText().toString().equals("") || new_nip.getText().toString().equals("")) {
+                        Toast.makeText(getContext(), "Campo Vacío", Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        if (new_pass.getText().toString().length() <= 4) {
+                            Toast.makeText(getContext(), "La contraseña debe contener mínimo 5 Carácteres", Toast.LENGTH_SHORT).show();
+
+                        } else if (new_nip.getText().toString().length() < 4) {
+                            Toast.makeText(getContext(), "El NIP debe ser de 4 números", Toast.LENGTH_SHORT).show();
+
+                        } else {
+
+                            String new_name = name.getText().toString();
+                            String new_lastname = lastname.getText().toString();
+                            String new_email = email.getText().toString();
+                            String new_password = new_pass.getText().toString();
+                            int new_nipaz = Integer.valueOf(new_nip.getText().toString());
+
+                            inventory.updateUser(String.valueOf(id), new_name, new_lastname, new_email, new_password);
+                            inventory.updateNIP(String.valueOf(id), new_nipaz);
+                            Toast.makeText(getContext(), "Datos Modificados ", Toast.LENGTH_SHORT).show();
+
+
+                        }
+
+
+                      }
+                }else {
+
+                    if (name.getText().toString().equals("") || lastname.getText().toString().equals("") || email.getText().toString().equals("")) {
+                        Toast.makeText(getContext(), "Campo Vacío", Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+
+                        String new_name = name.getText().toString();
+                        String new_lastname = lastname.getText().toString();
+                        String new_email = email.getText().toString();
+                        String new_password = user.getPass();
+                        inventory.updateUser(String.valueOf(id), new_name, new_lastname, new_email, new_password);
+                        Toast.makeText(getContext(), "Datos Modificados ", Toast.LENGTH_SHORT).show();
+
+
+                    }
+
+                }
+
+
+            }
+        });
+
+        button_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(Acceso==1){
+                    linearLayout_pass.setVisibility(View.GONE);
+                    Acceso=0;
+                    Toast.makeText(getContext(), "Cancelado ", Toast.LENGTH_SHORT).show();
+
+                }
 
             }
         });
@@ -193,5 +274,17 @@ public class FragmentUser extends Fragment {
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if ((requestCode == request_code && resultCode == RESULT_OK)) {
+            Acceso=1;
+           linearLayout_pass.setVisibility(View.VISIBLE);
+
+        }
+
+
+
+    }
 }

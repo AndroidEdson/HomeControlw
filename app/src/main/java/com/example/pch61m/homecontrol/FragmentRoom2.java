@@ -232,7 +232,7 @@ public class FragmentRoom2 extends Fragment {
             mHandler6.postDelayed(runnable6, 3000);
 
             if(LM3!= null) {
-                LM3=onColorChangeListener.LM3().substring(3, 5);
+                LM3=onColorChangeListener.LM3().substring(3);
                 seek_temperaturaroom2.setProgress(Integer.valueOf(LM3));
                 txt_temperaturaroom2.setText(String.valueOf(seek_temperaturaroom2.getProgress()) + "º");
             }

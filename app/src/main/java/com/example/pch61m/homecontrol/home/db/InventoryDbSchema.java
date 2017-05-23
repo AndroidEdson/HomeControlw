@@ -54,4 +54,19 @@ public final class InventoryDbSchema {
 
     }
 
+
+
+    public static final class UserNIP{
+        public static final String NAME = "pass_door";
+
+        public static final class Columns
+        {
+            public static final String ID = "id";
+            public static final String NIP = "NIP";
+
+
+        }
+
+    }
+
 }

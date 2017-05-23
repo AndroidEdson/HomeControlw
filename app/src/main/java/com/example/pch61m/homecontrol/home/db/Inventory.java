@@ -1,5 +1,6 @@
 package com.example.pch61m.homecontrol.home.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.CursorWrapper;
@@ -165,6 +166,30 @@ public final class Inventory {
 
     }
 
+    public  void  updateUser(String id, String new_name,String new_last_name,String new_email,String new_password )
+    {
+
+
+        ContentValues values = new ContentValues();
+        values.put(InventoryDbSchema.Users_Table.Columns.NAME, new_name);// asegura que siempre da correcto
+        values.put(InventoryDbSchema.Users_Table.Columns.LASTNAME, new_last_name);
+        values.put(InventoryDbSchema.Users_Table.Columns.EMAIL, new_email);
+        values.put(InventoryDbSchema.Users_Table.Columns.PASSWORD, new_password);
+
+        db.update(InventoryDbSchema.Users_Table.NAME, values, InventoryDbSchema.Users_Table.Columns.ID + " = ?", new String[]{id});
+
+    }
+
+    public  void  updateNIP(String id, int new_password ) {
+
+        ContentValues values = new ContentValues();
+
+        values.put(InventoryDbSchema.UserNIP.Columns.NIP, new_password);
+
+        db.update(InventoryDbSchema.UserNIP.NAME, values, InventoryDbSchema.UserNIP.Columns.ID + " = ?", new String[]{id});
+
+
+    }
 
 
 } //END INVENTORY
