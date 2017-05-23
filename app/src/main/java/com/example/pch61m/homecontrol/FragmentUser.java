@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,11 +83,14 @@ public class FragmentUser extends Fragment {
     private TextView text_modificar_pass;
     private  int Acceso=0;
     private int request_code=0;
+    private int request_code2=1;
+
     private int id;
     Inventory inventory;
     private Users user;
     private Button button_ok;
     private Button button_cancel;
+    private ImageButton add_usser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,6 +112,8 @@ public class FragmentUser extends Fragment {
 
         button_cancel= (Button)view.findViewById(R.id.btn_cancel_confirmation1);
         button_ok=(Button)view.findViewById(R.id.btn_delete_confirmation1) ;
+        add_usser=(ImageButton) view.findViewById(R.id.add_user) ;
+
 
         inventory= new Inventory(getContext());
 
@@ -218,6 +224,16 @@ public class FragmentUser extends Fragment {
                     Toast.makeText(getContext(), "Cancelado ", Toast.LENGTH_SHORT).show();
 
                 }
+
+            }
+        });
+
+        add_usser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), Add_User.class);
+                startActivityForResult(i, request_code2);
 
             }
         });

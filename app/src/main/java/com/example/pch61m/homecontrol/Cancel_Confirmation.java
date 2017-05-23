@@ -15,6 +15,8 @@ public class Cancel_Confirmation extends Activity{
     String id;
     Button eliminar;
     Button cancelar;
+    public static String KEY_OK ="com.example.pch61m.homecontrol.KEY_OK";
+    public static String KEY_CANCEL ="com.example.pch61m.homecontrol.KEY_CANCEL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class Cancel_Confirmation extends Activity{
             @Override
             public void onClick(View v) {
                 Intent intent_back = new Intent();
+                intent_back.putExtra(KEY_OK , 1);
                 setResult(RESULT_OK, intent_back);
                 finish();
             }
@@ -36,6 +39,9 @@ public class Cancel_Confirmation extends Activity{
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent_back = new Intent();
+                intent_back.putExtra(KEY_OK , 0);
+                setResult(RESULT_OK, intent_back);
                 finish();
             }
         });

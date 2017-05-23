@@ -50,7 +50,9 @@
         <activity
             android:name=".Modificar_Contrasena"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
-
+        <activity
+            android:name=".Add_User"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
     </application>
 
 </manifest>

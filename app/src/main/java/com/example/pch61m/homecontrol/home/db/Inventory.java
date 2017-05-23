@@ -192,4 +192,40 @@ public final class Inventory {
     }
 
 
+    public int getLastId(String TableName)
+    {
+
+        //
+        Cursor cursor= (db.rawQuery("SELECT  MAX(id) FROM "+TableName, null));
+
+        cursor.moveToFirst();
+
+        //List<Products> list = new ArrayList<Products>();
+        int maxid= cursor.getInt(cursor.getColumnIndex("MAX(id)"));
+        return maxid;
+
+    }
+
+
+    public void addUser(int id, String name, String lastName, String Email, String pass  )
+    {
+        ///Agregar un elemento a la base de datos
+
+        db =inventoryHelper.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(InventoryDbSchema.Users_Table.Columns.ID, id);// asegura que siempre da correcto
+        contentValues.put(InventoryDbSchema.Users_Table.Columns.NAME, name);// asegura que siempre da correcto
+        contentValues.put(InventoryDbSchema.Users_Table.Columns.LASTNAME, lastName);
+        contentValues.put(InventoryDbSchema.Users_Table.Columns.EMAIL, Email);
+        contentValues.put(InventoryDbSchema.Users_Table.Columns.PASSWORD, pass);
+
+
+        db.insert(InventoryDbSchema.Users_Table.NAME, null, contentValues);
+
+        // Cursor cursor = new CategoryCursor((db.insert("categories", null , contentValues )));
+    }
+
+
+
 } //END INVENTORY

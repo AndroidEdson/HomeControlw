@@ -736,6 +736,7 @@ public class MainActivity extends AppCompatActivity
                      startActivityForResult(intent, REQUEST_ENABLE_BT);
                  }
 
+
              }else{
                  // Toast.makeText(getApplicationContext(), "  false ", Toast.LENGTH_SHORT).show();
                  if (btAdapter.isEnabled()) {
@@ -860,14 +861,22 @@ public class MainActivity extends AppCompatActivity
             case RESULT_CANCELED:
             default:
                 Toast.makeText(getApplicationContext(), "El dispositivo Bluetooth no pudo ser habilitado! " , Toast.LENGTH_SHORT).show();
-
+                blue_switch.setChecked(false);
                 //  appendStateText("[Error] El dispositivo Bluetooth no pudo ser habilitado!");
                 break;
         }
 
         if ( requestCode==request_code && resultCode== RESULT_OK)
         {
-              btAdapter.disable();
+
+            Bundle bandera = data.getExtras( );
+            int aux =bandera.getInt(Cancel_Confirmation.KEY_OK);
+            if(aux==0){
+                blue_switch.setChecked(true);
+            }else {
+                blue_switch.setChecked(false);
+                btAdapter.disable();
+            }
            // Toast.makeText(getApplicationContext(),"SIMON Apagado", Toast.LENGTH_SHORT).show();
 
         }
