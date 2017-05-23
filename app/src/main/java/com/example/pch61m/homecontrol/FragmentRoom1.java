@@ -101,6 +101,7 @@ public class FragmentRoom1 extends Fragment {
                 return true;
             }
         });
+        temperaturadeseadaroom1.setEnabled(false);
 
         //________________________________________________________________
         // EVENTOS CLICK  ___________________________________
@@ -161,10 +162,13 @@ public class FragmentRoom1 extends Fragment {
                     switchvent_room1.setChecked(false);
                     switchvent_room1.setEnabled(false);
                     onColorChangeListener.B1("B11");
+                    temperaturadeseadaroom1.setEnabled(true);
+
                  }
                  else{
                     onColorChangeListener.B1("B100");
                     switchvent_room1.setEnabled(true);
+                    temperaturadeseadaroom1.setEnabled(false);
                 }
         }});
 
