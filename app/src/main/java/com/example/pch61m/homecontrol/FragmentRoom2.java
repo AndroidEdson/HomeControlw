@@ -157,10 +157,10 @@ public class FragmentRoom2 extends Fragment {
                 if (isChecked) {
                     switchvent_room2.setChecked(false);
                     switchvent_room2.setEnabled(false);
-                    onColorChangeListener.B2("B20");
+                    onColorChangeListener.B2("B21");
                  }
                  else{
-                    onColorChangeListener.B2("B210");
+                    onColorChangeListener.B2("B200");
                     switchvent_room2.setEnabled(true);
                 }
         }});
@@ -172,11 +172,11 @@ public class FragmentRoom2 extends Fragment {
                 if (isChecked) {
                     switchventauto_room2.setChecked(false);
                     switchventauto_room2.setEnabled(false);
-                    onColorChangeListener.B2("B211");
+                    onColorChangeListener.B2("B201");
                 }
                 else{
                     switchventauto_room2.setEnabled(true);
-                    onColorChangeListener.B2("B210");
+                    onColorChangeListener.B2("B200");
                 }
             }});
         //________________________RGB ILUMINACION__________________________________________

@@ -98,8 +98,6 @@ public class FragmentExterior extends Fragment {
 
         seekBar_temperatura1 = (SeekBar) view.findViewById(R.id.seek_temperatura1);
         txt_temperatura1 = (TextView) view.findViewById(R.id.txt_temperatura1);
-
-
         seekBar_temperatura1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -121,7 +119,7 @@ public class FragmentExterior extends Fragment {
                 if (isChecked) {
                     int value = (int) (seekBar_terraza.getProgress() * 2.55);
                     String L1_string = "L1" + Integer.toString(value);
-
+                    //if(L1_string.length() == 1){L1_string = "L1000";}
                     onColorChangeListener.L1(L1_string);
 
                     Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
@@ -143,8 +141,9 @@ public class FragmentExterior extends Fragment {
                 if (isChecked) {
                     int value = (int) (seekBar_patio.getProgress() * 2.55);
                     String L2_string = "L2" + Integer.toString(value);
-
+                    //if(L2_string.length() == 1){L2_string = "L2000";}
                     onColorChangeListener.L2(L2_string);
+
 
                     //Toast.makeText(getContext(), L2_string, Toast.LENGTH_SHORT).show();
                 } else {
@@ -167,8 +166,8 @@ public class FragmentExterior extends Fragment {
                 if (L1_switch_terraza.isChecked()) {
 
                     int value = (int) (seekBar_terraza.getProgress() * 2.50);
-                    String L1_string = "L1" + Integer.toString(value);
-
+                    String L1_string = "L1" + String.format("%03d",value );
+                    //if(L1_string.length() == 3){L1_string = "L1000";}
                     onColorChangeListener.L1(L1_string);
 
                 }
@@ -187,6 +186,7 @@ public class FragmentExterior extends Fragment {
         });
 
 
+
         seekBar_patio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -194,8 +194,8 @@ public class FragmentExterior extends Fragment {
                 if (L2_switch_patio.isChecked()) {
 
                     int value = (int) (seekBar_patio.getProgress() * 2.50);
-                    String L2_string = "L2" + Integer.toString(value);
-
+                    String L2_string = "L2" + String.format("%03d",value );
+                    //if(L2_string.length() == 3){L2_string = "L2000";}
                     onColorChangeListener.L2(L2_string);
 
                 }
@@ -315,7 +315,7 @@ public class FragmentExterior extends Fragment {
     Runnable runnable6 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable6, 3000);
+            mHandler6.postDelayed(runnable6, 2000);
 
             if (LM4 != null) {
                 LM4 = onColorChangeListener.LM4().substring(3, 5);
@@ -324,6 +324,12 @@ public class FragmentExterior extends Fragment {
                 txt_temperatura1.setText(String.valueOf(LM4));
 
             }
+            if (seekBar_terraza.getProgress() <= 10) {
+                String L1_string = "L1000";
+                onColorChangeListener.L1(L1_string); }
+            if (seekBar_patio.getProgress() <= 10) {
+                String L2_string = "L2000";
+                onColorChangeListener.L2(L2_string); }
         }
     };
 

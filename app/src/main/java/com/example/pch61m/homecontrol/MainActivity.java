@@ -979,7 +979,7 @@ public class MainActivity extends AppCompatActivity
             mHandler6.removeCallbacks(runnable1);
             mHandler6.removeCallbacks(runnable2);
             mHandler6.removeCallbacks(runnable4);
-            SendMessage("B110");
+            SendMessage("B100");
             LM2 = "LM200";
             fragment = new FragmentRoom1();
 
@@ -989,7 +989,7 @@ public class MainActivity extends AppCompatActivity
             mHandler6.removeCallbacks(runnable2);
             mHandler6.removeCallbacks(runnable3);
             mHandler6.removeCallbacks(runnable1);
-            SendMessage("B210");
+            SendMessage("B200");
             LM3 = "LM300";
             fragment = new FragmentRoom2();
 
