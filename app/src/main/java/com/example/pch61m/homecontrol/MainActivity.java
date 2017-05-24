@@ -160,6 +160,35 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @Override
+    public void SEND_Z1(String value) {
+        SendMessage(value);
+    }
+
+    @Override
+    public void SEND_P1(String value) {
+        SendMessage(value);
+    }
+
+    @Override
+    public void SEND_P2(String value) {
+        SendMessage(value);
+    }
+
+    @Override
+    public void SEND_V1(String value) {
+        SendMessage(value);
+    }
+
+    @Override
+    public void SEND_V2(String value) {
+        SendMessage(value);
+    }
+
+    @Override
+    public void SEND_PI(String value) {
+        SendMessage(value);
+    }
 
 
     //LECTURA
@@ -652,15 +681,6 @@ public class MainActivity extends AppCompatActivity
         id= i.getIntExtra(EXTRA_ID,0);
 
 
-        if(savedInstanceState!= null)
-        {
-          //  id= savedInstanceState.getString(KEY_ID, "");
-
-        }
-
-
-
-
         inventory= new Inventory(getApplicationContext());
         //InventoryHelper.backupDatabaseFile(getApplicationContext());
 
@@ -995,15 +1015,15 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_users) {
 
-            Bundle bundle= new Bundle();
-            bundle.putInt(KEY_ID,id);
-            fragment.setArguments(bundle);
+
             fragment = new FragmentUser();
 
         }
         else if (id == R.id.nav_profiles) {
 
-
+         //  Bundle bundle= new Bundle();
+         //  bundle.putInt(KEY_ID,1);
+         //  fragment.setArguments(bundle);
             fragment = new profiles_User();
 
 

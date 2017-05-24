@@ -7,9 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.pch61m.homecontrol.home.db.Inventory;
+import com.example.pch61m.homecontrol.home.db.User_to_profile;
+import com.example.pch61m.homecontrol.home.db.Users;
+
+import java.util.List;
 
 
 public class profiles_User extends Fragment {
@@ -50,6 +55,8 @@ public class profiles_User extends Fragment {
 
     private Inventory inventory;
     private Spinner spinner;
+    private  int id;
+    private Users user;
 
 
 
@@ -63,9 +70,25 @@ public class profiles_User extends Fragment {
 
         spinner= (Spinner)view.findViewById(R.id.spinner_profile);
 
+        inventory= new Inventory(getContext());
 
 
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            id = bundle.getInt(MainActivity.KEY_ID, 0);
+        }
 
+        user=inventory.getUserFromID(id);
+
+        List<User_to_profile> user_to_profiles= inventory.getProfiles(String.valueOf(user.getId()));
+
+        final ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item);
+
+        for (User_to_profile User_to_profile : user_to_profiles) {
+            spinner_adapter.add(User_to_profile.getDescription());
+        }
+
+        spinner.setAdapter(spinner_adapter);
 
         return view;
     }

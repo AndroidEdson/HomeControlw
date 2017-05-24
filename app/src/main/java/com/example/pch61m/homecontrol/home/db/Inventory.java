@@ -71,6 +71,21 @@ class UserProfileCursor extends CursorWrapper {
 
 }
 
+class UserToProfileCursor extends CursorWrapper {
+
+    public UserToProfileCursor(Cursor cursor) {super(cursor);}
+
+    public User_to_profile getUserToProfile(){
+        Cursor cursor = getWrappedCursor();
+        return  new User_to_profile (cursor.getInt(cursor.getColumnIndex(InventoryDbSchema.User_to_profile_Table.Columns.ID)),
+                cursor.getInt(cursor.getColumnIndex(InventoryDbSchema.User_to_profile_Table.Columns.ID_PROFILE)),
+                cursor.getString(cursor.getColumnIndex(InventoryDbSchema.User_to_profile_Table.Columns.DESCRIPTION)),
+                cursor.getString(cursor.getColumnIndex(InventoryDbSchema.User_to_profile_Table.Columns.ACTUATORS)));
+    }
+
+}
+
+
 
 //********************************************************
 //********************************************************
@@ -224,6 +239,30 @@ public final class Inventory {
         db.insert(InventoryDbSchema.Users_Table.NAME, null, contentValues);
 
         // Cursor cursor = new CategoryCursor((db.insert("categories", null , contentValues )));
+    }
+
+
+
+
+    public  List<User_to_profile> getProfiles(String id_user) {
+
+        List<User_to_profile> list = new ArrayList<User_to_profile>();
+
+        //  Cursor cursor = db.rawQuery("SELECT * FROM categories ORDER BY id", null);
+
+        String query_macizo =" SELECT a.id as id , c.id as id_profile, description, actuators \n" +
+                " FROM  users a\n" +
+                "INNER JOIN users_profile b ON ( a.id = b.id_user) \n" +
+                "INNER JOIN profiles  c ON ( c.id = b.id_profile)\n" +
+                "WHERE a.id="+id_user+ " ORDER BY c.description ASC";
+
+        UserToProfileCursor cursor = new UserToProfileCursor(db.rawQuery(query_macizo, null));
+
+        while (cursor.moveToNext()) {
+            list.add((cursor.getUserToProfile()));
+        }
+
+        return list;
     }
 
 

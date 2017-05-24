@@ -69,4 +69,23 @@ public final class InventoryDbSchema {
 
     }
 
+
+
+    public static final class User_to_profile_Table{
+
+        public static final class Columns
+        {
+            public static final String ID = "id";
+            public static final String ID_PROFILE = "id_profile";
+            public static final String DESCRIPTION = "description";
+            public static final String ACTUATORS = "actuators";
+
+        }
+
+    }
+
+
+
+
+
 }
