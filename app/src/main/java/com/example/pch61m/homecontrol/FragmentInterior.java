@@ -299,10 +299,7 @@ public class FragmentInterior extends Fragment {
 
                 onColorChangeListener.SEND_V1("V1"+ data.getStringExtra("v1"));
 
-                onColorChangeListener.SEND_V2("V2" +
-                        "" +
-                        "" +
-                        ""+ data.getStringExtra("v2"));
+                onColorChangeListener.SEND_V2("V2"+ data.getStringExtra("v2"));
 
                 onColorChangeListener.SEND_PI("PI"+ data.getStringExtra("pi"));
 
