@@ -60,7 +60,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener,FragmentInterior.OnFragmentInteractionListener,FragmentInterior.OnColorChangeListener,FragmentRoom1.OnFragmentInteractionListener,FragmentRoom1.OnColorChangeListener,
-        FragmentRoom2.OnFragmentInteractionListener,FragmentRoom2.OnColorChangeListener{
+        FragmentRoom2.OnFragmentInteractionListener,FragmentRoom2.OnColorChangeListener, profiles_User.OnFragmentInteractionListener{
 
 
 //SAUL SE LA COME
@@ -801,7 +801,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
     //________________________________FUNCION DE ENVIAR _______________________________________________
     //_______________________________________________________________________________
 
@@ -992,17 +991,21 @@ public class MainActivity extends AppCompatActivity
             LM3 = "LM300";
             fragment = new FragmentRoom2();
 
-            Bundle bundle= new Bundle();
-            bundle.putInt(KEY_ID,id);
-            fragment.setArguments(bundle);
+
         }
         else if (id == R.id.nav_users) {
 
-
+            Bundle bundle= new Bundle();
+            bundle.putInt(KEY_ID,id);
+            fragment.setArguments(bundle);
             fragment = new FragmentUser();
 
         }
         else if (id == R.id.nav_profiles) {
+
+
+            fragment = new profiles_User();
+
 
         }
 
