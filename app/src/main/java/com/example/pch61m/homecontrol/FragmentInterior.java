@@ -290,18 +290,18 @@ public class FragmentInterior extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == AlarmPopup.RESULT_OK){
-             //   onColorChangeListener.buzzerconfig("ZZ"+"p1"+data.getStringExtra("p1")+"p2"+data.getStringExtra("p2")+"v1"+data.getStringExtra("v1")
-             //   +"v2"+data.getStringExtra("v2")+"pi"+data.getStringExtra("pi"));
+                onColorChangeListener.buzzerconfig("P1"+data.getStringExtra("p1")+"P2"+data.getStringExtra("p2")+"V1"+data.getStringExtra("v1")
+                +"V2"+data.getStringExtra("v2")+"PI"+data.getStringExtra("pi"));
 
-                onColorChangeListener.SEND_P1("P1"+ data.getStringExtra("p1"));
+            //    onColorChangeListener.SEND_P1("P1"+ data.getStringExtra("p1"));
 
-                onColorChangeListener.SEND_P2("P2"+ data.getStringExtra("p2"));
+             //   onColorChangeListener.SEND_P2("P2"+ data.getStringExtra("p2"));
 
-                onColorChangeListener.SEND_V1("V1"+ data.getStringExtra("v1"));
+               // onColorChangeListener.SEND_V1("V1"+ data.getStringExtra("v1"));
 
-                onColorChangeListener.SEND_V2("V2"+ data.getStringExtra("v2"));
+               // onColorChangeListener.SEND_V2("V2"+ data.getStringExtra("v2"));
 
-                onColorChangeListener.SEND_PI("PI"+ data.getStringExtra("pi"));
+              //  onColorChangeListener.SEND_PI("PI"+ data.getStringExtra("pi"));
 
 
 
