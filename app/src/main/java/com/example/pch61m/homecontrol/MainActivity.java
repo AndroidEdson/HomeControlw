@@ -402,7 +402,7 @@ public class MainActivity extends AppCompatActivity
                 t2=values[0];
             }
 
-            Toast.makeText(getApplicationContext(), values[0], Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), values[0], Toast.LENGTH_SHORT).show();
            // appendMessageText("[Recibido] " + values[0]);
         }
     }
@@ -1038,7 +1038,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_interior) {
 
             SendMessage("I1");
-            SendMessage("D6");
             mHandler6.post(runnable2);
             mHandler6.removeCallbacks(runnable1);
             mHandler6.removeCallbacks(runnable3);
@@ -1135,28 +1134,28 @@ public class MainActivity extends AppCompatActivity
     Runnable runnable1 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable1, 3000);
+            mHandler6.postDelayed(runnable1, 5000);
             SendMessage("D1");
         }
     };
     Runnable runnable2 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable2, 3000);
+            mHandler6.postDelayed(runnable2, 5000);
             SendMessage("D2");
         }
     };
     Runnable runnable3 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable3, 3000);
+            mHandler6.postDelayed(runnable3, 5000);
             SendMessage("D3");
         }
     };
     Runnable runnable4 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable4, 3000);
+            mHandler6.postDelayed(runnable4, 5000);
             SendMessage("D4");
         }
     };

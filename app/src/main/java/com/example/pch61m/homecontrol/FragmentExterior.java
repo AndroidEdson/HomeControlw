@@ -236,7 +236,7 @@ public class FragmentExterior extends Fragment {
                 if (isChecked) {
 
 
-                    String S1_string = "S1" + "1";
+                    String S1_string = "S1" + "0";
 
                     onColorChangeListener.S1(S1_string);
 
@@ -245,7 +245,7 @@ public class FragmentExterior extends Fragment {
 
                 } else {
 
-                    String S1_string = "S10";
+                    String S1_string = "S11";
 
                     onColorChangeListener.S1(S1_string);
                     //  Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();

@@ -261,7 +261,7 @@ public class FragmentRoom1 extends Fragment {
     Runnable runnable6 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable6, 3000);
+            mHandler6.postDelayed(runnable6, 5000);
 
             if(LM2!= null) {
                 LM2=onColorChangeListener.LM2().substring(3);
