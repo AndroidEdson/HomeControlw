@@ -131,13 +131,9 @@ public final class Inventory {
     public Users getUserID(String email, String pass ) {
         Users list ;
 
-
         UsersCursor cursor = new UsersCursor((db.rawQuery( "SELECT * FROM users WHERE  ( UPPER(name) LIKE '%"+email+"%' OR email LIKE '%"+email+"%') and pass LIKE '%"+pass+"%'" , null)));
-
-
         cursor.moveToNext();
             list=cursor.getUser();  // metodo wrappcursor
-
 
         cursor.close();
         return list;
@@ -153,7 +149,6 @@ public final class Inventory {
         UsersCursor cursor = new UsersCursor((db.rawQuery("SELECT * FROM users WHERE id="+String.valueOf(id) , null)));
         cursor.moveToNext();
         list=cursor.getUser();  // metodo wrappcursor
-
 
         cursor.close();
         return list;
@@ -183,7 +178,6 @@ public final class Inventory {
 
     public  void  updateUser(String id, String new_name,String new_last_name,String new_email,String new_password )
     {
-
 
         ContentValues values = new ContentValues();
         values.put(InventoryDbSchema.Users_Table.Columns.NAME, new_name);// asegura que siempre da correcto
@@ -225,7 +219,6 @@ public final class Inventory {
     public void addUser(int id, String name, String lastName, String Email, String pass  )
     {
         ///Agregar un elemento a la base de datos
-
         db =inventoryHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -265,6 +258,29 @@ public final class Inventory {
         return list;
     }
 
+    public void AddProfile(int id_user, String description )
+    {
+        ///Agregar un elemento a la base de datos
+        db =inventoryHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(InventoryDbSchema.Profile_Table.Columns.ID, id_user);
+        contentValues.put(InventoryDbSchema.Profile_Table.Columns.DESCRIPTION, description);
+        contentValues.put(InventoryDbSchema.Profile_Table.Columns.ACTUATORS, "JML1250L2250B101B201R1FFFFFFR2FFFFFF");
+        db.insert(InventoryDbSchema.Profile_Table.NAME, null, contentValues);
+        // Cursor cursor = new CategoryCursor((db.insert("categories", null , contentValues )));
+    }
+
+
+    public void AddUserProfile(int id_user, int id_profile )
+    {
+        ///Agregar un elemento a la base de datos
+        db =inventoryHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(InventoryDbSchema.UserProfile_Table.Columns.ID_USER, id_user);
+        contentValues.put(InventoryDbSchema.UserProfile_Table.Columns.ID_PROFILE, id_profile);
+        db.insert(InventoryDbSchema.UserProfile_Table.NAME, null, contentValues);
+        // Cursor cursor = new CategoryCursor((db.insert("categories", null , contentValues )));
+    }
 
 
 } //END INVENTORY

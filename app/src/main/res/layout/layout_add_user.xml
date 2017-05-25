@@ -165,7 +165,7 @@
         android:padding="10dp">
 
         <Button
-            android:id="@+id/btn_delete_confirmation"
+            android:id="@+id/btn_delete_confirmation3"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:background="@android:color/holo_green_dark"
@@ -175,7 +175,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_cancel_confirmation"
+            android:id="@+id/btn_cancel_confirmation3"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:layout_marginLeft="15dp"

@@ -60,7 +60,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, FragmentExterior.OnFragmentInteractionListener,FragmentExterior.OnColorChangeListener,FragmentInterior.OnFragmentInteractionListener,FragmentInterior.OnColorChangeListener,FragmentRoom1.OnFragmentInteractionListener,FragmentRoom1.OnColorChangeListener,
-        FragmentRoom2.OnFragmentInteractionListener,FragmentRoom2.OnColorChangeListener, profiles_User.OnFragmentInteractionListener{
+        FragmentRoom2.OnFragmentInteractionListener,FragmentRoom2.OnColorChangeListener, profiles_User.OnFragmentInteractionListener, FragmentUser.OnFragmentInteractionListener {
 
 
 //SAUL SE LA COME
@@ -686,6 +686,7 @@ public class MainActivity extends AppCompatActivity
     private boolean flag;
     private int  request_code=0;
     Handler mHandler6 = new Handler() ;
+    private int id_user;
 
     private View device;
     private View device1;
@@ -707,13 +708,13 @@ public class MainActivity extends AppCompatActivity
 
         Intent i = getIntent();
 
-        id= i.getIntExtra(EXTRA_ID,0);
+        id_user= i.getIntExtra(EXTRA_ID,0);
 
 
         inventory= new Inventory(getApplicationContext());
         //InventoryHelper.backupDatabaseFile(getApplicationContext());
 
-        users= inventory.getUserFromID(id);
+        users= inventory.getUserFromID(id_user);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -1044,17 +1045,19 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_users) {
 
-
+            Bundle bundle= new Bundle();
+            bundle.putInt(KEY_ID,id_user);
             fragment = new FragmentUser();
+            fragment.setArguments(bundle);
 
         }
         else if (id == R.id.nav_profiles) {
 
-         //  Bundle bundle= new Bundle();
-         //  bundle.putInt(KEY_ID,1);
-         //  fragment.setArguments(bundle);
-            fragment = new profiles_User();
-
+          //  Toast.makeText(getApplicationContext(), String.valueOf())
+          Bundle bundle= new Bundle();
+          bundle.putInt(KEY_ID,id_user);
+           fragment = new profiles_User();
+           fragment.setArguments(bundle);
 
         }
 

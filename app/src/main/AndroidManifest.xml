@@ -53,6 +53,9 @@
         <activity
             android:name=".Add_User"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name=".new_profile"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
     </application>
 
 </manifest>
