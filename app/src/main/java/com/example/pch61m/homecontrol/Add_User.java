@@ -39,8 +39,8 @@ public class Add_User extends Activity {
         inventory= new Inventory(getApplicationContext());
 
 
-        eliminar = (Button) findViewById(R.id.btn_delete_confirmation) ;
-        cancelar = (Button) findViewById(R.id.btn_cancel_confirmation) ;
+        eliminar = (Button) findViewById(R.id.btn_delete_confirmation3) ;
+        cancelar = (Button) findViewById(R.id.btn_cancel_confirmation3) ;
         txt_Add_name = (TextView) findViewById(R.id.txt_add_name);
         txt_Add_lastname = (TextView) findViewById(R.id.txt_add_lastname);
         txt_Add_email = (TextView) findViewById(R.id.txt_add_email);
