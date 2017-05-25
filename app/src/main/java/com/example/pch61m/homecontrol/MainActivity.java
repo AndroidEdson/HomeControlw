@@ -106,6 +106,12 @@ public class MainActivity extends AppCompatActivity
     public String l2;
     public String s1;
     public String s2;
+    public String b1;
+    public String b2;
+    public String r1;
+    public String r2;
+    public String t1;
+    public String t2;
 
     // VARIABLES DE LECTURAS
 
@@ -274,6 +280,20 @@ public class MainActivity extends AppCompatActivity
     public String s2() {
         return s2;
     }
+    @Override
+    public String b1() {
+        return b1;
+    }
+    @Override
+    public String b2() {return b2;}
+    @Override
+    public String r1() {return r1;}
+    @Override
+    public String r2() {return r2;}
+    @Override
+    public String t1() {return t1;}
+    @Override
+    public String t2() {return t2;}
 
     //LECTURA
 
@@ -362,6 +382,24 @@ public class MainActivity extends AppCompatActivity
             }
             if(values[0].startsWith("s2")){
                 s2=values[0];
+            }
+            if(values[0].startsWith("b1")){
+                b1=values[0];
+            }
+            if(values[0].startsWith("b2")){
+                b2=values[0];
+            }
+            if(values[0].startsWith("r1")){
+                r1=values[0];
+            }
+            if(values[0].startsWith("r2")){
+                r2=values[0];
+            }
+            if(values[0].startsWith("t1")){
+                t1=values[0];
+            }
+            if(values[0].startsWith("t2")){
+                t2=values[0];
             }
 
             Toast.makeText(getApplicationContext(), values[0], Toast.LENGTH_SHORT).show();

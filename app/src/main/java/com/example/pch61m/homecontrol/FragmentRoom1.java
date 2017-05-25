@@ -74,6 +74,10 @@ public class FragmentRoom1 extends Fragment {
     Handler mHandler6 = new Handler();
     private String LM2="";
     int request_code=1;
+    private String b1 = "";
+    private String r1 = "";
+    private String t1 = "";
+
 
 
     @Override
@@ -109,8 +113,12 @@ public class FragmentRoom1 extends Fragment {
         temperaturadeseadaroom1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), TemperaturaPopup.class);
-                startActivityForResult(intent, request_code);
+                t1=onColorChangeListener.t1();
+                if (t1 != null && t1 != "" ) {
+                    Intent intent = new Intent(getContext(), TemperaturaPopup.class);
+                    intent.putExtra(TemperaturaPopup.EXTRA_P1, Integer.valueOf(onColorChangeListener.t1().substring(2)));
+                    startActivityForResult(intent, request_code);
+                }
             }
         });
 
@@ -195,12 +203,29 @@ public class FragmentRoom1 extends Fragment {
                     onColorChangeListener.R1("R1" + Integer.toHexString(color).substring(2) );
                 } else {
                     colorrom1.setEnabled(false);
-                    onColorChangeListener.R1("R10");
+                    onColorChangeListener.R1("R1000000");
                 }
             }
         });
 
+        b1 = onColorChangeListener.b1();
+        if (b1 != null && b1 != "" ) {
+            b1 = onColorChangeListener.b1().substring(2,3);
+            if(Integer.valueOf(b1) == 1) {switchventauto_room1.setChecked(true);switchvent_room1.setChecked(false);}
+            else {String b1aux = onColorChangeListener.b1().substring(3);
+                if(Integer.valueOf(b1aux) == 1) {switchventauto_room1.setChecked(false);switchvent_room1.setChecked(true);}
+                else  {switchventauto_room1.setChecked(false);switchvent_room1.setChecked(false);}
+            }
 
+        }
+        r1 = onColorChangeListener.r1();
+        if (r1 != null && r1 != "" ) {
+            r1 = onColorChangeListener.r1().substring(2,3);
+            if(Integer.valueOf(r1) == 1) {switch_rgbroom1.setChecked(true);}
+            else {switch_rgbroom1.setChecked(false);}
+
+
+        }
         mHandler6.post(runnable6);
 
         return view;
@@ -258,6 +283,9 @@ public class FragmentRoom1 extends Fragment {
         public void R1(String value);
         public void T1(String value);
         public String LM2();
+        public String b1();
+        public String r1();
+        public String t1();
     }
 
     @Override
