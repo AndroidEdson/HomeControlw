@@ -102,6 +102,10 @@ public class MainActivity extends AppCompatActivity
     public String v1;
     public String v2;
     public String pi;
+    public String l1;
+    public String l2;
+    public String s1;
+    public String s2;
 
     // VARIABLES DE LECTURAS
 
@@ -208,10 +212,6 @@ public class MainActivity extends AppCompatActivity
     public String LM4() {
         return LM4;
     }
-    @Override
-    public void UpdateA1(String value) {
-        SendMessage(value);
-    }
 
     @Override
     public String P1() {
@@ -256,6 +256,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     public String pi() {
         return pi;
+    }
+
+    @Override
+    public String l1() {
+        return l1;
+    }
+    @Override
+    public String l2() {
+        return l2;
+    }
+    @Override
+    public String s1() {
+        return s1;
+    }
+    @Override
+    public String s2() {
+        return s2;
     }
 
     //LECTURA
@@ -333,6 +350,18 @@ public class MainActivity extends AppCompatActivity
             }
             if(values[0].startsWith("pi")){
                 pi=values[0];
+            }
+            if(values[0].startsWith("l1")){
+                l1=values[0];
+            }
+            if(values[0].startsWith("l2")){
+                l2=values[0];
+            }
+            if(values[0].startsWith("s1")){
+                s1=values[0];
+            }
+            if(values[0].startsWith("s2")){
+                s2=values[0];
             }
 
             Toast.makeText(getApplicationContext(), values[0], Toast.LENGTH_SHORT).show();

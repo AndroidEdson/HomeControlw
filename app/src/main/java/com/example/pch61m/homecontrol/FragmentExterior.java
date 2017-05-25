@@ -71,6 +71,11 @@ public class FragmentExterior extends Fragment {
 
 
     private String LM4 = "";
+    private String l1 = "";
+    private String l2 = "";
+    private String s1 = "";
+    private String s2 = "";
+
     int val = 0;
     int request_code = 1;
     int door_permision=0;
@@ -279,7 +284,14 @@ public class FragmentExterior extends Fragment {
 
             }
         });
-
+        if (s1 != null) {
+            s1 = onColorChangeListener.s1().substring(2);
+            if(Integer.valueOf(s1) == 1){S1_switch_garage.setChecked(true);}else{S1_switch_garage.setChecked(false);}
+        }
+        if (s2 != null) {
+            s2 = onColorChangeListener.s2().substring(2);
+            if(Integer.valueOf(s2) == 1){S2_switch_puerta.setChecked(true);}else{S2_switch_puerta.setChecked(false);}
+        }
         mHandler6.post(runnable6);
 
         return view;
@@ -330,6 +342,8 @@ public class FragmentExterior extends Fragment {
             if (seekBar_patio.getProgress() <= 10) {
                 String L2_string = "L2000";
                 onColorChangeListener.L2(L2_string); }
+
+
         }
     };
 
@@ -349,9 +363,11 @@ public class FragmentExterior extends Fragment {
 
         public void S2(String value);
 
-        public void UpdateA1(String value);
-
         public String LM4();
+        public String s1();
+        public String s2();
+        public String l1();
+        public String l2();
 
     }
 

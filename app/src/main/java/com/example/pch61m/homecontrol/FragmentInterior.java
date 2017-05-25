@@ -100,11 +100,11 @@ public class FragmentInterior extends Fragment {
         seekInterior_temperaturaCocina= (SeekBar) view.findViewById(R.id.seekInterior_temperaturaCocina);
         txtInteriorMovimiento= (TextView) view.findViewById(R.id.txtInteriorMovimiento);
         InteriorVentana1= (TextView) view.findViewById(R.id.InteriorVentana1);
-        InteriorVentana2= (TextView) view.findViewById(R.id.InteriorVentana2);
-        Interiorpuerta= (TextView) view.findViewById(R.id.Interiorpuerta);
-        InteriorGarage= (TextView) view.findViewById(R.id.InteriorGarage);
-        txt_temperaturaCocina= (TextView) view.findViewById(R.id.txt_temperaturaCocina);
-        InteriorAlarma= (TextView) view.findViewById(R.id.InteriorAlarma);
+        InteriorVentana2 = (TextView) view.findViewById(R.id.InteriorVentana2);
+        Interiorpuerta = (TextView) view.findViewById(R.id.Interiorpuerta);
+        InteriorGarage = (TextView) view.findViewById(R.id.InteriorGarage);
+        txt_temperaturaCocina = (TextView) view.findViewById(R.id.txt_temperaturaCocina);
+        InteriorAlarma = (TextView) view.findViewById(R.id.InteriorAlarma);
 
         btnConfigurar= (Button) view.findViewById(R.id.btnConfigurar);
 
