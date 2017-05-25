@@ -71,7 +71,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private String email;
     private String password;
 
-
+   // INSERT INTO profiles (id, description, actuators ) VALUES ( 0,'Día Lluvioso', 'JAL1250L2250B11T150B21T250R1FFFFFFR2FFFFFF');
+   // INSERT INTO profiles (id, description, actuators ) VALUES ( 1,'Día Soleado', 'JML1250L2250B101B201R1FFFFFFR2FFFFFF');
+   // INSERT INTO profiles (id, description, actuators ) VALUES ( 2,'Noche', 'JRL1250L2250B11T150B201R1FFFFFFR2FFFFFF');
+   // INSERT INTO profiles (id, description, actuators ) VALUES (3,'Atardecer', 'JKL1250L2250B101B21T250R1FFFFFFR2FFFFFF');
 
     private  final List<Users>  ss(){
         Inventory inventory;
