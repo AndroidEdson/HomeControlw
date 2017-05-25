@@ -12,6 +12,8 @@ public class TemperaturaPopup extends Activity {
     Button aceptar;
     Button cancelar;
     EditText editText;
+    public static String EXTRA_P1 = "P1";
+    public static String EXTRA_P2 = "P2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +23,14 @@ public class TemperaturaPopup extends Activity {
         cancelar = (Button) findViewById(R.id.btn_cancel_confirmation) ;
         editText = (EditText) findViewById(R.id.editText) ;
 
-
+        Intent i = getIntent();
+        int aux = i.getIntExtra(EXTRA_P1,30);
+        editText.setText(String.valueOf(aux));
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_back = new Intent();
-                intent_back.putExtra("t1",String.valueOf(editText.getText()));
+                intent_back.putExtra("T1",String.valueOf(editText.getText()));
                 setResult(RESULT_OK, intent_back);
                 finish();
                 //
