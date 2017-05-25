@@ -122,12 +122,15 @@ public class FragmentExterior extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    int value = (int) (seekBar_terraza.getProgress() * 2.55);
-                    String L1_string = "L1" + Integer.toString(value);
-                    //if(L1_string.length() == 1){L1_string = "L1000";}
-                    onColorChangeListener.L1(L1_string);
-
-                    Toast.makeText(getContext(), L1_string, Toast.LENGTH_SHORT).show();
+                    String L1_string ;
+                    if (seekBar_terraza.getProgress() <= 10 && L1_switch_terraza.isChecked() == true) {
+                        L1_string = "L1000";
+                        onColorChangeListener.L1(L1_string); }
+                    else{
+                        int value = (int) (seekBar_terraza.getProgress() * 2.55);
+                        L1_string = "L1" + Integer.toString(value);
+                        onColorChangeListener.L1(L1_string);
+                    }
                 } else {
 
                     String L1_string = "L1000";
@@ -144,14 +147,17 @@ public class FragmentExterior extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    int value = (int) (seekBar_patio.getProgress() * 2.55);
-                    String L2_string = "L2" + Integer.toString(value);
-                    //if(L2_string.length() == 1){L2_string = "L2000";}
-                    onColorChangeListener.L2(L2_string);
-
-
-                    //Toast.makeText(getContext(), L2_string, Toast.LENGTH_SHORT).show();
-                } else {
+                    String L2_string ;
+                    if (seekBar_patio.getProgress() <= 10 && L2_switch_patio.isChecked() == true) {
+                        L2_string = "L2000";
+                        onColorChangeListener.L2(L2_string); }
+                    else{
+                        int value = (int) (seekBar_patio.getProgress() * 2.55);
+                        L2_string = "L2" + Integer.toString(value);
+                        onColorChangeListener.L2(L2_string);
+                    }
+                }
+                else {
 
                     String L2_string = "L2000";
 
@@ -169,7 +175,6 @@ public class FragmentExterior extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 if (L1_switch_terraza.isChecked()) {
-
                     int value = (int) (seekBar_terraza.getProgress() * 2.50);
                     String L1_string = "L1" + String.format("%03d",value );
                     //if(L1_string.length() == 3){L1_string = "L1000";}
@@ -284,13 +289,25 @@ public class FragmentExterior extends Fragment {
 
             }
         });
-        if (s1 != null) {
+        s1 = onColorChangeListener.s1();
+        if (s1 != null && s1 != "" ) {
             s1 = onColorChangeListener.s1().substring(2);
             if(Integer.valueOf(s1) == 1){S1_switch_garage.setChecked(true);}else{S1_switch_garage.setChecked(false);}
         }
-        if (s2 != null) {
+        s2 = onColorChangeListener.s2();
+        if (s2 != null && s2 != "" ) {
             s2 = onColorChangeListener.s2().substring(2);
             if(Integer.valueOf(s2) == 1){S2_switch_puerta.setChecked(true);}else{S2_switch_puerta.setChecked(false);}
+        }
+        l1 = onColorChangeListener.l1();
+        if (l1 != null && l1 != "" ) {
+            l1 = onColorChangeListener.l1().substring(2);
+            if(Integer.valueOf(l1) == 000) {seekBar_terraza.setProgress(Integer.valueOf(l1));} else{L1_switch_terraza.setChecked(true);seekBar_terraza.setProgress(Integer.valueOf(l1));}
+        }
+        l2 = onColorChangeListener.l2();
+        if (l2 != null && l2 != "" ) {
+            l2 = onColorChangeListener.l2().substring(2);
+            if(Integer.valueOf(l2) == 000) {seekBar_patio.setProgress(Integer.valueOf(l2));} else{L2_switch_patio.setChecked(true);seekBar_patio.setProgress(Integer.valueOf(l2));}
         }
         mHandler6.post(runnable6);
 
@@ -336,13 +353,6 @@ public class FragmentExterior extends Fragment {
                 txt_temperatura1.setText(String.valueOf(LM4));
 
             }
-            if (seekBar_terraza.getProgress() <= 10) {
-                String L1_string = "L1000";
-                onColorChangeListener.L1(L1_string); }
-            if (seekBar_patio.getProgress() <= 10) {
-                String L2_string = "L2000";
-                onColorChangeListener.L2(L2_string); }
-
 
         }
     };
