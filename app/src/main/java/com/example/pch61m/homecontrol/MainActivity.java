@@ -1027,7 +1027,6 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
            // SendMessage("D1");
             SendMessage("E1");
-            SendMessage("D5");
            mHandler6.post(runnable1);
             mHandler6.removeCallbacks(runnable2);
             mHandler6.removeCallbacks(runnable3);
@@ -1062,7 +1061,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_room1) {
             SendMessage("H1");
-            SendMessage("D7");
             mHandler6.post(runnable3);
             mHandler6.removeCallbacks(runnable1);
             mHandler6.removeCallbacks(runnable2);
@@ -1073,7 +1071,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_room2) {
             SendMessage("H2");
-            SendMessage("D8");
             mHandler6.post(runnable4);
             mHandler6.removeCallbacks(runnable2);
             mHandler6.removeCallbacks(runnable3);

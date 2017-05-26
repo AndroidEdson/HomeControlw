@@ -109,12 +109,11 @@ public class FragmentRoom2 extends Fragment {
         temperaturadeseadaroom2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                t2=onColorChangeListener.t2();
-                if (t2 != null && t2 != "" ) {
+
                     Intent intent = new Intent(getContext(), TemperaturaPopup.class);
-                    intent.putExtra(TemperaturaPopup.EXTRA_P1, Integer.valueOf(onColorChangeListener.t2().substring(2)));
+                    //intent.putExtra(TemperaturaPopup.EXTRA_P1, Integer.valueOf(onColorChangeListener.t2().substring(2)));
                     startActivityForResult(intent, request_code);
-                }
+
             }
         });
 
@@ -255,7 +254,7 @@ public class FragmentRoom2 extends Fragment {
     Runnable runnable6 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable6, 3000);
+            mHandler6.postDelayed(runnable6, 1000);
 
             if(LM3!= null) {
                 LM3=onColorChangeListener.LM3().substring(3);

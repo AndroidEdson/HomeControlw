@@ -173,7 +173,7 @@ public class FragmentInterior extends Fragment {
         @Override
         public void run()
         {
-            mHandler6.postDelayed(runnable6,3000);
+            mHandler6.postDelayed(runnable6,1000);
 
             //P1=onColorChangeListener.P1();
             //P2=onColorChangeListener.P2();

@@ -45,15 +45,15 @@
         android:buttonTint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimaryDark"
         />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:backgroundTint="@android:color/background_dark"
-        android:text="Ventana 2"
-        android:id="@+id/chkv2"
-        android:buttonTint="@color/colorPrimaryDark"
-        android:textColor="@color/colorPrimaryDark"
-        />
+
+        <CheckBox
+            android:id="@+id/chkv2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/background_dark"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:text="Garage"
+            android:textColor="@color/colorPrimaryDark" />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -63,16 +63,16 @@
         android:buttonTint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimaryDark"
         />
-    <CheckBox
-        android:layout_width="wrap_content"
 
-        android:layout_height="match_parent"
-        android:backgroundTint="@android:color/background_dark"
-        android:text="Garage"
-        android:id="@+id/chkp2"
-        android:buttonTint="@color/colorPrimaryDark"
-        android:textColor="@color/colorPrimaryDark"
-        />
+        <CheckBox
+            android:id="@+id/chkp2"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/background_dark"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:text="Ventana 2"
+            android:textColor="@color/colorPrimaryDark" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

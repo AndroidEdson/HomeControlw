@@ -344,7 +344,7 @@ public class FragmentExterior extends Fragment {
     Runnable runnable6 = new Runnable() {
         @Override
         public void run() {
-            mHandler6.postDelayed(runnable6, 3000);
+            mHandler6.postDelayed(runnable6, 1000);
 
             if (LM4 != null) {
                 LM4 = onColorChangeListener.LM4().substring(3);

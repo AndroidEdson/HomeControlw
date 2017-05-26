@@ -30,7 +30,7 @@ public class TemperaturaPopup extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent_back = new Intent();
-                intent_back.putExtra("T1",String.valueOf(editText.getText()));
+                intent_back.putExtra("t1",String.valueOf(editText.getText()));
                 setResult(RESULT_OK, intent_back);
                 finish();
                 //
